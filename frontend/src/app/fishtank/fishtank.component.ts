@@ -552,7 +552,7 @@ export class FishtankComponent implements OnInit, OnDestroy{
       show() {
         // this.finalFishesInTank=[1];
       // console.log('finalFishesInTank IN SHOW'+JSON.stringify(this.finalFishesInTank[0]));
-       
+      console.log('this.tank is : '+JSON.stringify(this.tank));
       console.log('finalFishesInTankSubject IN SHOW'+JSON.stringify(this.finalFishesInTankSubject.getValue()));
       //  // // console.log('tank in main component is'+JSON.stringify(this.tank))
         // // // console.log('pH in tank is'+this.tank.ph)

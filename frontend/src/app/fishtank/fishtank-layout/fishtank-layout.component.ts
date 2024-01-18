@@ -94,15 +94,22 @@ ngOnChanges() {
         }
        // // console.log('tank 222'+JSON.stringify(this.tank ));
        }
+        
         this.getCoverPosition();
         this.getHeights();
-        
-     
-        // setInterval(()=>{
-        //   console.log('delay is AAAAA')
-        // }, 500)
+        console.log('fetchFishData 2')
+     this.calculatePositions();
+
+      //  this.isAnimated = false;
+       
+//      setTimeout(() => {
+//      this.stopAnimatons();
+//  }, 500);
+
+
+   
       });
-this.calculatePositions();
+
         console.log('WORSK ')
         console.log('this.positions is :' + JSON.stringify(this.positions))
   }
@@ -155,8 +162,9 @@ this.calculatePositions();
         // calcLeft = (Math.random()*((40-((data.commonLength/this.tankLength)*40))    ));  
 
         // I assumed calcVelocityMax as the maximum length a fish would swim in one second, ten times its own body length. Units are % of Tank length and Tank Height!
-        calcHorizontalVelocityMax = (data.commonLength/this.tankLength)*1000;
-        calcVerticalVelocityMax = (data.commonLength/this.tankheight)*1000;
+        calcHorizontalVelocityMax = data.commonLength/this.tankLength >0.8 ? 0 : (data.commonLength/this.tankLength)*1000 ;
+        calcVerticalVelocityMax = data.commonLength/this.tankLength >0.8 ? 0 : (data.commonLength/this.tankLength)*1000 ;
+        console.log('calcHorizontalVelocityMax IS:' +calcHorizontalVelocityMax)
 
       //     let calcLeft:number = ((40-((data.commonLength/this.tankLength)*40)    )); 
       let intervalDelay = this.getRandom(2000,8000)
@@ -198,6 +206,7 @@ this.calculatePositions();
   iteratePositions(indexInArray:number,horizontalVelocity:number, verticalVelocity:number,verticalFactor:number,horizontalFactor:number) {
   
     // setInterval(func, delay)
+    console.log('verticalVelocity is: '+ (verticalVelocity))
     console.log('verticalFactor is: '+ (verticalFactor))
     console.log('horizontalFactor is: '+ (horizontalFactor))
 
@@ -291,29 +300,10 @@ switchAnimation() {
   this.isAnimated = !this.isAnimated;
   if(this.isAnimated) {
 
-    // this.positions.forEach((position,index)=> {
-    //     let count = 0;
-    //   console.log('WORSK ')
-    //    setInterval(()=> {
-    //       count++;
-    //       console.log('count is: '+count)
-    //       this.interval =   this.iteratePositions(index,position.velocityMax)
-    //     }, 3000)
-    //     ;
-    //   })
+    
     let countdown = 1;
 
-// this.intervalDelays 
-
-//     this.intervalPositionfactors= setInterval(()=> {
-
-//       this.positions.forEach((position,index)=> { 
-//   //  countdown = this.getRandom((1000/this.delay)*2, (1000/this.delay)*8)
-//        let name:string = 'Int'+String(position);
-
-
-
-//     },100)
+ 
 
      
 
@@ -356,19 +346,23 @@ switchAnimation() {
     
 
   }
+
+   console.log('this.isAnimated is: '+this.isAnimated)
 }
  
-stopAnimatons() {
+stopAnimatons() { 
   const interval_id = window.setInterval(function(){},1000000);
 
   // Clear any timeout/interval up to that id
   for (let i = 1; i < interval_id; i++) {
-    window.clearInterval(i);
-  }
+     window.clearInterval(i);
+    console.log('clearInterval 1' )
+   }
+
 }
 
 ngOnDestroy(): void {
-  console.log('clearInterval' )
+  console.log('clearInterval 2' )
   if (this.isAnimated) {
     this.stopAnimatons();
  }

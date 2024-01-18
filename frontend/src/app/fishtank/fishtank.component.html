@@ -1,10 +1,6 @@
 <div class="fishtank_container" >
-<!-- <div (click)="show()"   > XXX  </div> -->
-    <!-- <app-fishlist-intank
-     [finalFishesInTank]="finalFishesInTank" 
-     [AllFishEval]="AllFishEval" [overcrowdedRatio]="overcrowdedRatio" [tankName]="tank.tankName"></app-fishlist-intank> -->
+ <!-- <div (click)="show()">XXX</div> -->
      <app-fishlist-intank  *ngIf="this.tank&&finalFishesInTank.length!==0"
-   
      [AllFishEval]="AllFishEval" [overcrowdedRatio]="overcrowdedRatio" [tankName]="tank.tankName"></app-fishlist-intank>
     <div class="fishtank">
         <app-fishtank-layout></app-fishtank-layout>
