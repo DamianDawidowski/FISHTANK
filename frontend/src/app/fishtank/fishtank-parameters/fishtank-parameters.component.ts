@@ -355,7 +355,7 @@ if(this.tank) {
     template: `<div style="padding:20px;white-space: pre-line"><h4>{{message}}</h4></div>`, 
   })
   export class WelcomeDialog {
-    message:string='Thank you for installing and using my FishTank app!\n If this is your first time with the app, please start with setting up the tank in the "My Tank" tab - the button should be highlighted with a green arrow.\n Afterwards, add fish from the "Fish" tab, and return to My tank tab to see how they fit.\n Pay attention to any blinking allerts and keep adjusting the tank parameters as necessary.\n Happy playing!';
+    message:string='Thank you for installing and using my FISHTANK app!\n If this is your first time with the app, please start with setting up the tank in the "My Tank" tab - the button should be highlighted with a green arrow.\n Afterwards, add fish from the "Fish" tab, and return to My tank tab to see how they fit.\n Pay attention to any blinking allerts and keep adjusting the tank parameters as necessary.\n This is a highly responsive application that continuously evaluates all crucial parameters and guides you into setting up an aquarium where your fish may live a long and healthy life. \n Happy playing!';
     constructor( ) { 
         // console.log('tankEval in dialogue is: '+ (this.data['tankEval'].TankId))
         // console.log('tankEval in dialogue is: '+ JSON.stringify(this.data ))

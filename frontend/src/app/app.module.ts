@@ -10,7 +10,7 @@ import { DataStorageService } from './shared/data.storage.service';
 import { fishService } from './shared/fish.service';  
  import { AppRoutingModule } from './app-routing.module'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { backupData } from 'src/assets/fishBackup';
+import { backupData } from 'src/app/shared/fishBackup';
 
 @NgModule({
   declarations: [

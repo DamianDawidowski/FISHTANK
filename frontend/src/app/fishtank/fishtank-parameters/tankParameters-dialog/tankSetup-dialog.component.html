@@ -130,7 +130,7 @@
 
                 <div class="option"  *ngIf="!editWaterParams">
                                     <p style="font-size: 10px; margin: 0px;">The optimal water parameters can best be estimated once you add some fish</p>
-                                    <button style="font-size: 10px;" type="button" (click)="onShowWaterParamsForm()">I want to edit the parameters anyway</button>
+                                    <button style="font-size: 10px;" type="button" class="btn btn-warning" (click)="onShowWaterParamsForm()">I want to edit the parameters anyway</button>
                         </div> 
             </div>
         </div>
@@ -156,7 +156,7 @@
             </button> 
             <button  
             
-            class="btn btn-secondary " (click)="onCloseDialog()" type="button"
+            class="btn btn-secondary" (click)="onCloseDialog()" type="button"
             >
             <span class="caret" >Don't update</span>
             </button> 
