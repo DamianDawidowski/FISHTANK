@@ -1,0 +1,170 @@
+.tankContainer {
+    position: relative;
+    width:210px;
+    margin:20px 0px 20px 20px;
+}
+
+
+.tankView {
+    background-image: url('../../../assets/Designer2.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    position: relative; 
+    margin-bottom: 20px;
+} 
+.tankViewName {
+    text-align: center;
+}
+
+.tankViewLength {
+    position: absolute;
+    left: 35px;
+    top: 113px;
+    transform: rotate(+9deg);
+    /* background-image: url('../../../assets/Long_arrow.png'); 
+    background-size: contain; */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    /* border: 3px solid #73AD21; */
+}
+
+.tankViewLengthArrow {
+    position: relative;
+    left: 20px;
+    top: 30px;
+}
+
+
+
+.tankViewDepth {
+    position: absolute;
+    left: 135px;
+    top: 119px;
+    transform: rotate(-25deg);
+    line-height: 18px;
+    /* background-image: url('../../../assets/Long_arrow.png'); 
+    background-size: contain; */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    /* border: 3px solid #73AD21; */
+}
+
+.tankViewDepthArrow {
+    position: relative;
+    left: 0px;
+    top: 27px;
+}
+
+.tankViewHeight {
+    position: absolute;
+    left: 116px;
+    top: 45px;
+    transform: rotate(-90deg);
+    /* background-image: url('../../../assets/Long_arrow.png'); 
+    background-size: contain; */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    /* border: 3px solid #73AD21; */
+}
+
+.tankViewHeightArrow {
+    position: relative;
+    left: 10px;
+    top: 30px;
+}
+
+.tankViewHeightP {
+    white-space: nowrap;
+}
+
+.label{
+    width:90px;
+    position: relative;
+    
+    top: 16px;
+}
+
+.sliderContainer{
+    height:50px
+}
+
+.slidersContainer{
+    height:180px;
+}
+.message {
+    /* padding-top: 20px; */
+    font-size: 12px;
+    /* white-space: break-spaces; */
+    white-space: pre-wrap;
+}
+
+.btnControl {
+     margin: 0 0 0 30px;
+}
+
+
+
+.icon {
+    position: absolute;
+    top: 40%;
+  left:100%;
+    transform: translate(-50%,-50%);
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+    transform: rotate(+180deg);
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 25px;
+    width: 90%;
+    height: 10px;
+    background-color: #198754;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    animation: arrow 700ms linear infinite;
+  }
+  
+  .arrow::after, .arrow::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 10px;
+    right: -8px;
+    background-color: #198754;
+  }
+  
+  .arrow::after {
+    top: -12px;
+    transform: rotate(45deg);
+  }
+  
+  .arrow::before {
+    top: 12px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transform: rotate(-45deg);
+  }
+
+
+
+.translateArrow {
+    /* animation: blinker 1s step-start infinite; */
+    animation: translation ease-in-out  1s infinite;
+  }
+
+@keyframes translation {
+    100% {
+      /* opacity: 0; */
+      /* background-color: green; */
+      /* border: 4px red; */
+     left:100%;
+      /* box-shadow: 0px 0px 9px 0px green; */
+      /* font-size: 40px; */
+    }
+
+    50% {
+        left:60%;
+    }
+  }

@@ -1,0 +1,33 @@
+.containerFish {
+    padding:10px;
+    /* padding:10px 0 10px 10px; */
+    width:150px;
+    max-width: 400px;
+    border:2px solid grey;
+    margin : 10px;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.names {
+    /* position:relative; */
+}
+
+.italics {
+    /* position:absolute; */
+    font-style: italic;
+    font-size: 10px;
+    max-height: 15px;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items :center;  
+}
+
+.textAdjust {
+    font-size: 14px;
+    /* font-size: 100%;  */
+}

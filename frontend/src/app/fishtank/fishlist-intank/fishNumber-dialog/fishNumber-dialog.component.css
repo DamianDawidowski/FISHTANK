@@ -1,0 +1,12 @@
+.dialogContainer {
+    padding:15px;
+}
+
+.inputContainer {
+    padding: 20px 0;
+}
+
+.buttonContainer {
+    display:flex;
+     justify-content: space-between;
+}

@@ -1,0 +1,16 @@
+.container_fishes {
+    display:flex;
+margin:auto;
+}
+
+.containerList {
+    margin:30px;
+width:  80vw;;
+display: flex;
+
+}
+
+.bntAdjust {
+    margin-top: 65px;
+    width: 80px;
+}

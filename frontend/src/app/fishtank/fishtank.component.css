@@ -1,0 +1,13 @@
+.fishtank_container {
+    display: flex;
+    
+}
+
+
+
+.fishtank {
+    /* width:100%; */
+    height: 100%;
+    /* background-image: url('./../../assets/fishtank.jpeg'); */
+    /* padding-left: 50px; */
+}

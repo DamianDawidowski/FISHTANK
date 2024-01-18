@@ -1,0 +1,16 @@
+.container_lengthSlider {
+    min-width: 300px;
+}
+
+.changeContainer {
+    display:flex;
+    justify-content: space-between;
+}
+
+.isSchoolingContainer {
+    margin:20px 0px;
+}
+
+.italics {
+    font-style: italic;
+}

@@ -1,0 +1,25 @@
+<div class="dialogContainer">
+    <span>Adjust the number of {{fishName}}</span>
+    <form [formGroup]="numberForm" (ngSubmit)="onSubmit()" >
+        <div class="form-group inputContainer">
+            <!-- <label for="name">{{count}}</label> -->
+            <input type="number"  [(ngModel)]="count"
+            id="count" class="form-control"
+            formControlName="count">
+        </div>
+
+        <div class="buttonContainer">
+            <button   
+            class="btn btn-primary" type="submit" [disabled]="!numberForm.valid">
+            Update
+            </button> 
+
+            <button type="button"
+            class="btn btn-danger" (click)="onDeletefish()">
+            Remove all
+            </button> 
+        </div>
+       
+    </form>
+
+</div>

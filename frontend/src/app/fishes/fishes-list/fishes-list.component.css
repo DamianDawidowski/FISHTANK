@@ -1,0 +1,5 @@
+.fishWrapper {
+    display: flex;
+
+    flex-wrap:  wrap;
+}

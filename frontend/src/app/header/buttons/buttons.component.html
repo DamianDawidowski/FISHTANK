@@ -1,0 +1,28 @@
+<div class="  wrapper_button">
+  <div class="  container_button">
+    <button routerLink="/fishes"  *ngIf="isLoggedIn" class="btn btn-primary" style="margin: 10px" (click)="onLogin()">
+    Fish
+    </button>
+    <button routerLink="/fishtank"  *ngIf="isLoggedIn" class="btn btn-primary" style="margin: 10px" (click)="onLogin()">
+    <span [innerHtml]="mytank"> </span >
+    </button> 
+  </div>
+  <div class=" " style=" ">
+    <button routerLink="/auth/login"  *ngIf="!isLoggedIn" class="btn btn-primary" style="margin: 10px" (click)="onLogin()">
+    Login
+    </button>
+    <button routerLink="/auth/register" *ngIf="!isLoggedIn" class="btn btn-primary" style="margin: 10px" (click)="onRegister()">
+    Register
+    </button>
+    <div class="logout  container_button">
+      <div>
+        <p *ngIf="username" class="username">Welcome {{username}}</p>
+      </div>
+       <button *ngIf="isLoggedIn" class="btn btn-dark" style="margin: 10px" (click)="onLogout()">
+    Logout
+    </button>
+    </div>
+   
+  </div>
+</div>
+  

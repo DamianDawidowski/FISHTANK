@@ -1,0 +1,18 @@
+<div class="fishtank_container" >
+<!-- <div (click)="show()"   > XXX  </div> -->
+    <!-- <app-fishlist-intank
+     [finalFishesInTank]="finalFishesInTank" 
+     [AllFishEval]="AllFishEval" [overcrowdedRatio]="overcrowdedRatio" [tankName]="tank.tankName"></app-fishlist-intank> -->
+     <app-fishlist-intank  *ngIf="this.tank&&finalFishesInTank.length!==0"
+   
+     [AllFishEval]="AllFishEval" [overcrowdedRatio]="overcrowdedRatio" [tankName]="tank.tankName"></app-fishlist-intank>
+    <div class="fishtank">
+        <app-fishtank-layout></app-fishtank-layout>
+    </div>
+    <div>
+        <app-fishtank-parameters [tank]="tank" [finalFishesInTank]="finalFishesInTank" [tankScore]="tankScore" [tankEval]="tankEval"></app-fishtank-parameters>
+    </div>
+    <div>
+        <app-fishtank-errors *ngIf="this.tank" [tank]="tank" [tankEval]="tankEval"></app-fishtank-errors>
+    </div>
+</div>

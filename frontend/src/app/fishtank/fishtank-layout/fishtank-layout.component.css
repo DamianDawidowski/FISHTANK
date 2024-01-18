@@ -1,0 +1,128 @@
+.fishtankLayoutContainer {
+  
+    position: relative;
+    /* height:26vw;  */
+    height:22.4vw; 
+    width: 40vw;
+    /* height:31vw; 
+    width: 350px; */
+    background-image: url('../../../assets/fishtank.jpeg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    /* margin-top: 60px; */
+    /* top: 60px; */
+    top: 8vw; 
+}
+.fishtankLayoutWrapper {
+  display: flex;
+  
+}
+
+
+.fishtankWaterLevel {
+    position: absolute;
+    /* top:10vw; */
+    background-image: url('../../../assets/fishtank.jpeg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center 12%;
+    width: 40vw;
+    height:0.6vw;
+    opacity: 0.8;
+    z-index: 5; 
+}
+
+.coverComment {
+    position: absolute;
+    left:15px;
+    top:-12px;
+    font-size: 10px;
+}
+
+.fishtankTopBackground {
+    position: absolute;
+    top: -2.8vw;  
+    background-color: #cae2e4; 
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+    width: 36.5vw;
+    height: 2.8vw;
+    z-index: 20;
+    left: 1.5vw;
+
+}
+
+.fishtankCover {
+    position: absolute;
+    top:-4.7vw; 
+    background-image: url('../../../assets/fishtank.jpeg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+    border-radius: 10px 10px 0 0;
+    width: 40vw;
+    /* height:3vw; */
+    height:0.5vw;
+    
+}
+
+.fishtankCoverBackground {
+    position: absolute;
+    top:-4.7vw;
+    background-color: rgb(99, 204, 204);
+     background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+     width: 40vw;
+    /* height:3vw; */
+    height:5vw;
+    z-index: 5;
+    opacity: 0.1;
+    border-radius: 10px 10px 0 0;
+}
+
+.fishtankBackground { 
+
+    position: absolute;
+    background-image: url('../../../assets/fishtank.jpeg');
+    background-size: 100% 10000%;
+    background-repeat: no-repeat;
+    background-position: center 14.6%; 
+    width: 40vw;
+    height: 5.6vw;
+    top: -4.2vw; 
+
+    
+}
+
+
+
+.swimmingContainer {
+    position: absolute;
+    /* top: 3vw; */
+    bottom:1.5vw;
+    /* padding: 2vw 0; */
+    /* background-color: red;
+    opacity: 0.5; */
+    /* height:21vw;  */
+    width: 40vw;
+}
+
+.image {
+    position: absolute;
+    top:0vw;
+    border-radius:20%;
+}
+
+
+
+
+
+
+@media (max-width: 800px){
+    .fishtankLayoutWrapper{
+        display: none;
+    }
+}

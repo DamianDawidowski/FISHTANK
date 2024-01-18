@@ -1,0 +1,65 @@
+.dialogContainer {
+    padding:20px;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formContainer {
+    display: flex;
+   
+}
+
+.leftPanel { 
+    /* padding-bottom: 20px;  */
+}
+
+.rightPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    width:290px;
+}
+
+.dimension {
+    max-width: 150px;
+}
+
+.option {
+    width: 200px; 
+    padding-left: 20px;
+    
+   }
+
+
+.labelForm {
+    position: relative;
+  }
+  
+ .unitForm {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+  }
+
+  .suggestion{
+    font-size: 12px;;
+  }
+
+  .buttonSuggestion{
+    max-width: 200px;
+    /* margin-bottom: 20px; */
+    margin: 0 0 0 130px;
+  }
+
+  .bottomButtonsContainer{ 
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+    width: 440px;
+  }
+
+  

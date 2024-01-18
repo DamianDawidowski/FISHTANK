@@ -1,0 +1,47 @@
+.container_fishDetails {
+    display:flex;
+    margin:auto; 
+    justify-content: space-between;
+}
+
+.inputContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.countInput {
+    width: 150px; 
+}
+
+.changeContainer {
+    width: 460px;
+    display:flex;
+    justify-content: space-between;
+    padding-top:20px;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+   
+}
+
+.btnAdjust {
+    /* font-size: 12px;  */
+    height: 50px;
+    /* width: 120px;
+    max-width: 120px */
+}
+
+.italics {
+    font-style: italic;
+}

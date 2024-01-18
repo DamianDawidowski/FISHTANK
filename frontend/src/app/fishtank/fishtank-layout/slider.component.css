@@ -1,0 +1,31 @@
+/*  
+::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__shadow {
+    background-color: rgb(34, 234, 34) ;
+   }
+  
+  ::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) 
+  .mdc-switch__track::after {
+    background-color:  rgb(34, 234, 34);
+   }
+
+   ::ng-deep .mdc-switch:enabled .mdc-switch__track::after {
+     background-color:  rgb(34, 234, 34)!important;
+   }
+
+
+   .mdc-switch:enabled .mdc-switch__track::after
+
+   
+    
+   .mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after {
+    background: red!important;
+  }
+   
+
+
+
+  .mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::after {
+    background: var(--mdc-switch-selected-hover-track-color);
+  }
+   
+  */
