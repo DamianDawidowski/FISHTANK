@@ -18,9 +18,9 @@
       <div>
         <p *ngIf="username" class="username">Welcome {{username}}</p>
       </div>
-       <button *ngIf="isLoggedIn" class="btn btn-dark" style="margin: 10px">
-      Logout
-    </button>
+       <button *ngIf="isLoggedIn" class="btn btn-dark" style="margin: 10px" (click)="onLogout()">
+        Logout
+      </button>
     </div> 
   </div>
 </div>
