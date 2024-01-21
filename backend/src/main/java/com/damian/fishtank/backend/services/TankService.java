@@ -2,15 +2,11 @@ package com.damian.fishtank.backend.services;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
-import com.damian.fishtank.backend.dtos.FishDto;
-import com.damian.fishtank.backend.dtos.TankDto;
-import com.damian.fishtank.backend.entities.Fish;
+ 
+import com.damian.fishtank.backend.dtos.TankDto; 
 import com.damian.fishtank.backend.entities.Tank;
-import com.damian.fishtank.backend.exceptions.AppException;
-import com.damian.fishtank.backend.mappers.FishMapper;
-import com.damian.fishtank.backend.mappers.TankMapper;
-import com.damian.fishtank.backend.repositories.FishRepository;
+import com.damian.fishtank.backend.exceptions.AppException; 
+import com.damian.fishtank.backend.mappers.TankMapper; 
 import com.damian.fishtank.backend.repositories.TankRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -19,15 +15,12 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class TankService {
-    
+public class TankService { 
 
-   private final  TankRepository tankRepository;
+    private final  TankRepository tankRepository;
     private final TankMapper tankMapper;
-
-
-
-     public TankDto getTank(Long id) {
+ 
+    public TankDto getTank(Long id) {
         Tank tank = tankRepository.findTankByUserId(id)
         .orElseThrow(() -> new AppException("Tank not found", HttpStatus.NOT_FOUND));
         return tankMapper.toTankDto(tank);
@@ -53,13 +46,5 @@ public class TankService {
         TankDto tankDto = tankMapper.toTankDto(tank); 
         tankRepository.deleteById(id); 
         return tankDto;
-    }
-
-
-
-
-
-
-
-
+    } 
 }

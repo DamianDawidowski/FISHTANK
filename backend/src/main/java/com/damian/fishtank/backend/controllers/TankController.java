@@ -26,12 +26,7 @@ public class TankController {
       
     @Autowired
     TankService tankService;
-
-    // @GetMapping("/fish")
-    //  public ResponseEntity<List<FishDto>> getFish() {       
-    //    return ResponseEntity.ok(tankService.getTank());
-    // }
-
+ 
     //Searches by user ID, not tank ID!
     @GetMapping("/fishtank/{id}")
     public ResponseEntity<TankDto> getTank(@PathVariable Long id) {
@@ -50,19 +45,10 @@ public class TankController {
         return ResponseEntity.ok(tankService.updateTank(id, tankDto));
     }
 
-    
-  
+     
     @DeleteMapping("/fishtank/{id}")
     public ResponseEntity<TankDto> deleteFish(@PathVariable Long id) {
         return ResponseEntity.ok(tankService.deleteTank(id));
     }
-
-
-
-
-
-
-
-
-
+ 
 }

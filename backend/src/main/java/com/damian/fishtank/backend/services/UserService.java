@@ -21,10 +21,8 @@ import java.util.Optional;
 @Service
 public class UserService {
     
-    private final UserRepository userRepository;
-
-    private final PasswordEncoder passwordEncoder;
-
+    private final UserRepository userRepository; 
+    private final PasswordEncoder passwordEncoder; 
     private final UserMapper userMapper;
 
     public UserDto login(CredentialsDto credentialsDto) {
@@ -32,11 +30,10 @@ public class UserService {
             .orElseThrow(() -> new AppException("Unknown user", HttpStatus.NOT_FOUND));
 
         if (passwordEncoder.matches(CharBuffer.wrap(credentialsDto.password()), user.getPassword())) {
-        return userMapper.toUserDto(user);
+            return userMapper.toUserDto(user);
         }
-        throw new AppException("Invalid password", HttpStatus.BAD_REQUEST);
-
-}
+        throw new AppException("Invalid password", HttpStatus.BAD_REQUEST); 
+    }
 
     public UserDto register(SignUpDto userDto) {
         Optional<User> optionalUser = userRepository.findByLogin(userDto.login());
@@ -55,7 +52,7 @@ public class UserService {
 
     public UserDto findByLogin(String login) {
         User user = userRepository.findByLogin(login)
-                .orElseThrow(() -> new AppException("Unknown user", HttpStatus.NOT_FOUND));
+            .orElseThrow(() -> new AppException("Unknown user", HttpStatus.NOT_FOUND));
         return userMapper.toUserDto(user);
     }
 }
