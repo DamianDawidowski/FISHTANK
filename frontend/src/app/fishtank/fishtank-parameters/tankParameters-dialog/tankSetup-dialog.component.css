@@ -4,18 +4,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
+} 
 
 .formContainer {
-    display: flex;
-   
+    display: flex; 
 }
-
-.leftPanel { 
-    /* padding-bottom: 20px;  */
-}
-
+  
 .rightPanel {
     display: flex;
     flex-direction: column;
@@ -30,36 +24,33 @@
 
 .option {
     width: 200px; 
-    padding-left: 20px;
-    
-   }
-
+    padding-left: 20px; 
+} 
 
 .labelForm {
     position: relative;
-  }
+}
   
- .unitForm {
+.unitForm {
     position: absolute;
     top: 30px;
     right: 35px;
-  }
+}
 
-  .suggestion{
-    font-size: 12px;;
-  }
+.suggestion{
+  font-size: 12px;
+}
 
-  .buttonSuggestion{
-    max-width: 200px;
-    /* margin-bottom: 20px; */
+.buttonSuggestion{
+    max-width: 200px; 
     margin: 0 0 0 130px;
-  }
+}
 
-  .bottomButtonsContainer{ 
+.bottomButtonsContainer{ 
     display: flex;
     justify-content: space-between;
     margin: 20px 0 0 0;
     width: 440px;
-  }
+}
 
   

@@ -1,21 +1,15 @@
- 
-
-	<div class="tab-content LogContainer" >
+ 	<div class="tab-content LogContainer" >
 	  <div [ngClass]="active == 'login' ? 'tab-pane fade show active' : 'tab-pane fade'">
 	    <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
-
 	      <div class="form-outline mb-4">
 	        <input type="login" id="loginName" name= "login" class="form-control" [(ngModel)]="login" />
 	        <label class="form-label" for="loginName">Username</label>
 	      </div>
-
 	      <div class="form-outline mb-4">
 	        <input type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password" />
 	        <label class="form-label" for="loginPassword">Password</label>
 	      </div>
-
 	      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
 	    </form>
 	  </div> 
 	</div> 

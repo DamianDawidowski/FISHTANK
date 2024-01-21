@@ -9,12 +9,7 @@
     justify-content: space-between;
     align-items: center;
 }
-
-
-.logout {
-    /* padding-right:40px; */
-}
-
+ 
 .username {
     margin:10px;
 }

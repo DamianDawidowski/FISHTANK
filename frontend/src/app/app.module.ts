@@ -5,26 +5,22 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';  
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
-import { ButtonsComponent } from './header/buttons/buttons.component';
-import { DataStorageService } from './shared/data.storage.service';
-import { fishService } from './shared/fish.service';  
+import { ButtonsComponent } from './header/buttons/buttons.component'; 
  import { AppRoutingModule } from './app-routing.module'; 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { backupData } from 'src/app/shared/fishBackup';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent, 
-    ButtonsComponent,  
-    // AuthComponent
+    ButtonsComponent 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-  AppRoutingModule, 
-  BrowserAnimationsModule
+    AppRoutingModule, 
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

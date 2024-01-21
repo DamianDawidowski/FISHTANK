@@ -8,11 +8,8 @@ const routes: Routes = [
     { path: 'fishes', loadChildren: () => import('./fishes/fishes.module')
     .then(m => m.FishesModule)},     
     { path: 'auth', loadChildren: () => import('./auth/auth.module')
-    .then(m => m.AuthModule)},   
-     
- 
-    // { path: 'auth', component: AuthComponent },
-    { path: '**', redirectTo: 'fishtank'}
+    .then(m => m.AuthModule)},    
+    { path: '**', redirectTo: 'fishes'}
 ];
 
 @NgModule({ 

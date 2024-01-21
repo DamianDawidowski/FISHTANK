@@ -2,35 +2,31 @@
   background-color: #222;
 }
 
- .app-header {
-    width:100%;
-    margin:auto;
-    max-width: 1920px;
-    height: 80px;
-    padding: 0px 20px;
-    color: white;
-    text-align: center;
-    /* display: flex; */
-  }
+.app-header {
+  width:100%;
+  margin:auto;
+  max-width: 1920px;
+  height: 80px;
+  padding: 0px 20px;
+  color: white;
+  text-align: center;
+}
 
 .app-logo {
     height: 80px;
-  }
+}
   
- 
-  
-  .app-title {
-    font-size: 1.5em;
-  }
+.app-title {
+  font-size: 1.5em;
+}
 
-  .buttonContainer{
-    position:absolute;
-    top:20px;
-    width:  100%;
-    /* max-width: 1920px; */
-    margin:0px;
-    left:0px;
-  }
+.buttonContainer{
+  position:absolute;
+  top:20px;
+  width: 100%;
+  margin:0px;
+  left:0px;
+}
 
 
   

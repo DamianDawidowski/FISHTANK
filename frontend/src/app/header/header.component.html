@@ -1,24 +1,11 @@
 <div  class="headerContainer"> 
-<header class="app-header">
-	 
-	<img src='../../assets/logo.png' style="height:80px; padding:5px" class="app-logo" alt="logo" />
-	<div class="d-sm-inline-flex p-2">
-
-
-	<h1 class="app-title">{{pageTitle}}</h1>
-
-	<!-- <p *ngIf="username !=''">Welcome {{username}}</p> -->
-
-	</div>
-
-	<div class="buttonContainer">
-		<app-buttons [username]="username"/>
-
-	</div>
-	
-		
- 
-	
-</header>
-	
+	<header class="app-header"> 
+		<img src='../../assets/logo.png' style="height:80px; padding:5px" class="app-logo" alt="logo" />
+		<div class="d-sm-inline-flex p-2"> 
+			<h1 class="app-title">{{pageTitle}}</h1> 
+		</div> 
+		<div class="buttonContainer">
+			<app-buttons [username]="username"/> 
+		</div> 
+	</header> 
 </div>

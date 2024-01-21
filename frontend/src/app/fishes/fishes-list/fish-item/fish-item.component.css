@@ -1,6 +1,5 @@
 .containerFish {
-    padding:10px;
-    /* padding:10px 0 10px 10px; */
+    padding:10px; 
     width:150px;
     max-width: 400px;
     border:2px solid grey;
@@ -8,13 +7,8 @@
     background-color: white;
     opacity: 0.8;
 }
-
-.names {
-    /* position:relative; */
-}
-
-.italics {
-    /* position:absolute; */
+  
+.italics { 
     font-style: italic;
     font-size: 10px;
     max-height: 15px;
@@ -28,6 +22,5 @@
 }
 
 .textAdjust {
-    font-size: 14px;
-    /* font-size: 100%;  */
+    font-size: 14px; 
 }

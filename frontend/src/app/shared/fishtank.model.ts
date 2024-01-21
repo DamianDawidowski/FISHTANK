@@ -1,13 +1,4 @@
-import { Fish } from "./fish.model";
-
-
-// export interface FishDetail {
-//   fishId: number;
-//   count: number; 
-// }
-
-export class Fishtank {
-  
+ export class Fishtank { 
     public id: number;
     public userId: number;
     public tankName: string; 
@@ -20,7 +11,6 @@ export class Fishtank {
     public fishesInTank: string[] =[];
   
     constructor(userId: number, tankName: string, length: number, height: number, depth: number, ph?: number, dh?: number, temperature?: number, fishesInTank?: string[]) {
-       
       this.userId = userId;
       this.tankName = tankName;
       this.length = length;
@@ -30,8 +20,5 @@ export class Fishtank {
       this.dh = dh;
       this.temperature = temperature;
       this.fishesInTank = fishesInTank;
-    }
-  
-  
-  
+    } 
   }

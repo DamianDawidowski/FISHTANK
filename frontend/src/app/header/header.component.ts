@@ -7,21 +7,16 @@ import { UserService } from '../auth/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-	@Input() pageTitle: string;
-	// @Input() logoSrc: string;
+	@Input() pageTitle: string; 
   username: string ='';
   logoSrc: string = './../../assets'
-  constructor(private userService: UserService ) { }
-    
+  constructor(private userService: UserService ) { } 
 
   ngOnInit() {
-  this.userService.user.subscribe(user => {
-    if (user?.login !=null) {
-      this.username =  user!.login;
-    } 
+    this.userService.user.subscribe(user => {
+      if (user?.login !=null) {
+        this.username =  user!.login;
+      } 
     });
-    }
-
-
-
+  } 
 }

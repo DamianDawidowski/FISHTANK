@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/app/auth/user.service';
 
 @Component({
@@ -12,17 +12,14 @@ export class ButtonsComponent  implements OnInit {
   hasTank: boolean = true;
   mytank: String = this.hasTank? "My tank" : "Create a fishtank";
   
-  constructor(private userService: UserService ) {
-    
-   }
+  constructor(private userService: UserService ) {}
  
   ngOnInit() {
      this.userService.user.subscribe(user => {
       if(user) {
         this.isLoggedIn=true;
       }
-     })
-
+     }) 
   }
 
   ngDoCheck() {
@@ -32,26 +29,10 @@ export class ButtonsComponent  implements OnInit {
      } else {
       this.isLoggedIn=false;
      }
-    })
+    }) 
+  } 
 
- }
- public onShowFishes() {
-
- }
-
- public onShowTank() {
-
- }
-
-  public onLogin() {
-
-  }
-
-  public onRegister() {
-
-  }
-
-public onLogout() {
-  this.userService.logout();
-  }
+  public onLogout() {
+    this.userService.logout();
+    }
 }

@@ -7,11 +7,9 @@ import { Fishtank } from '../shared/fishtank.model';
 import { FishDetail, FishInTankDetail, fishTankService } from '../shared/fishtank.service';
 import { fishService } from '../shared/fish.service';
 import { Fish } from '../shared/fish.model';
-import { Type } from '@angular/compiler';
-import { FishtankModule } from './fishtank.module';
+import { Type } from '@angular/compiler'; 
 
-export class fishEval{
-
+export class fishEval{ 
   public FishId:number; 
   public FishName:string; 
   public isOvercrowded:boolean;
@@ -52,69 +50,50 @@ export class fishEval{
       this.depthRatio = depthRatio;
       this.heightRatio = heightRatio;
       this.finalEval=finalEval;  
-  }
+  } 
+}
 
+export class tankEval{
+
+  public TankId:number;
+  public volume:number;
+  public neededVolume:number; 
+  public isTempGood:boolean;
+  public tempDifference:number;
+  public recommendedTemp:number; 
+  public isPHGood:boolean;
+  public pHDifference:number;
+  public recommendedPH:number; 
+  public isDHGood:boolean;
+  public dHDifference:number;
+  public recommendedDH:number; 
+  public finalEval:number;  
+
+  constructor(TankId:number, volume:number, neededVolume:number, tempDifference:number, recommendedTemp:number, pHDifference:number,
+      recommendedPH:number, dHDifference:number, recommendedDH:number, finalEval:number,isTempGood:boolean, isPHGood:boolean,isDHGood:boolean){
+      this.TankId=TankId;
+      this.volume=volume;
+      this.neededVolume=neededVolume;
+      this.tempDifference=tempDifference;
+      this.recommendedTemp=recommendedTemp;
+      this.pHDifference=pHDifference;
+      this.recommendedPH=recommendedPH;
+      this.dHDifference=dHDifference;
+      this.recommendedDH=recommendedDH;
+      this.finalEval=finalEval;  
+      this.isTempGood=isTempGood; 
+      this.isPHGood=isPHGood; 
+      this.isDHGood=isDHGood; 
+  }
+}
  
-  
-  }
-
-  export class tankEval{
-
-    public TankId:number;
-    public volume:number;
-    public neededVolume:number;
-
-    public isTempGood:boolean;
-    public tempDifference:number;
-    public recommendedTemp:number;
-
-    public isPHGood:boolean;
-    public pHDifference:number;
-    public recommendedPH:number;
-
-    public isDHGood:boolean;
-    public dHDifference:number;
-    public recommendedDH:number;
-
-    public finalEval:number;  
-
-    constructor(TankId:number, volume:number, neededVolume:number, tempDifference:number, recommendedTemp:number, pHDifference:number,
-       recommendedPH:number, dHDifference:number, recommendedDH:number, finalEval:number,isTempGood:boolean, isPHGood:boolean,isDHGood:boolean){
-        this.TankId=TankId;
-        this.volume=volume;
-        this.neededVolume=neededVolume;
-        this.tempDifference=tempDifference;
-        this.recommendedTemp=recommendedTemp;
-        this.pHDifference=pHDifference;
-        this.recommendedPH=recommendedPH;
-        this.dHDifference=dHDifference;
-        this.recommendedDH=recommendedDH;
-        this.finalEval=finalEval;  
-        this.isTempGood=isTempGood; 
-        this.isPHGood=isPHGood; 
-        this.isDHGood=isDHGood; 
-    }
-    }
-
-
-//  @Injectable
-//     ({
-//       providedIn: FishtankModule
-//    })
 @Component({
   selector: 'app-fishtank',
   templateUrl: './fishtank.component.html',
   styleUrls: ['./fishtank.component.css']
 })
 export class FishtankComponent implements OnInit, OnDestroy{ 
-
-  constructor(private fishService: fishService,
-    private tankService: fishTankService,
-  private dataService: DataStorageService,
-  private userService: UserService,) {} 
-
-  tankSubscription: Subscription;
-
+  tankSubscription: Subscription; 
   fishListSubscription: Subscription;
   fishDesciptionSubscription: Subscription;
   fishDetail:FishDetail;
@@ -123,322 +102,221 @@ export class FishtankComponent implements OnInit, OnDestroy{
   tank: Fishtank; 
   sortedFishes: Fish[] = [];
   fishes: Fish[] = [];
-    finalFishesInTank = [];
-  finalFishesInTankSubject = new BehaviorSubject<Array<any>>([]);
-
-    AllFishEval:fishEval[] =[];
-    tankEval: tankEval;
-    tankScore:number = 0; 
-      overcrowdedRatio:number;
-
-
-      testvalue:number=0;
+  finalFishesInTank = [];
+  finalFishesInTankSubject = new BehaviorSubject<Array<any>>([]); 
+  AllFishEval:fishEval[] =[];
+  tankEval: tankEval;
+  tankScore:number = 0; 
+  overcrowdedRatio:number; 
+  testvalue:number=0;
 
 
-
-      start(params:Type) {
-      
-    }
-
-      ngOnInit() { 
-        // setInterval(this.show, 5000);
-        // // // console.log('aa is 1:') 
-        // this.finalFishesInTank=[];
-        console.log('STARTED')
-        this.dataService.fetchFishes();
-      this.dataService.fetchTank(); 
-       this.tankSubscription =   this.tankService.tank.subscribe(tank => { 
-        if (tank === null) { 
-          return
-        } else {
-          this.tank=tank; 
-        }
-        });
-
-        this.fishDesciptionSubscription =  this.fishService.fishesChanges
-        .subscribe(
-          (fishes: Fish[]) => {
-            console.log('fished1')
-            if(fishes){
-               console.log('fishes are 444: '+fishes)
-           this.sortedFishes = fishes.sort(function(a, b) { 
-             return a.id - b.id;
-           })
-           this.fishes = fishes;
-            }
-           
-           }); 
-       
-        if(this.tank) {
-          console.log('fished2')
-            this.fishListSubscription =     this.tankService.fishListSubject.subscribe(  fishDetail => { 
-                
-                    
-                      this.fishDetailList = fishDetail; 
-                  
-                      this.fishDetailList.forEach( (fishDetail)=> { 
-            
-                    })
-
-                  
-                      });
-                    
-                  //     this.evaluateFishes(); 
-                  //  this.evaluateTank();
-
-                    this.fishDesciptionSubscription =  this.fishService.fishesChanges
-                      .subscribe(
-                        (fishes: Fish[]) => {
-                      
-                        this.sortedFishes = fishes.sort(function(a, b) { 
-                          return a.id - b.id;
-                        })
-                        this.fishes = fishes;
-                        }); 
+  constructor(private fishService: fishService,
+    private tankService: fishTankService,
+    private dataService: DataStorageService,
+    private userService: UserService,) {} 
  
+  ngOnInit() {   
+    this.dataService.fetchFishes();
+    this.dataService.fetchTank(); 
+    this.tankSubscription =   this.tankService.tank.subscribe(tank => { 
+      if (tank === null) { 
+        return
+      } else {
+        this.tank=tank; 
+      }
+    }); 
+    this.fishDesciptionSubscription =  this.fishService.fishesChanges
+    .subscribe(
+      (fishes: Fish[]) => { 
+        if(fishes){ 
+          this.sortedFishes = fishes.sort(function(a, b) { 
+          return a.id - b.id;
+        })
+          this.fishes = fishes;
         } 
-            
-      }
-
-
-      setCount(count: number) {
-        this.show(); 
-        // this.finalFishesInTank[0].count=count;
-      }
-
-      ngOnChanges () { 
-        // // // console.log('works dd');
-
-        this.dataService.fetchTank(); 
-        this.tankSubscription =   this.tankService.tank.subscribe(tank => { 
-         if (tank === null) { 
-           return
-         } else {
-           this.tank=tank; 
-          //  // // console.log('tank pH is:'+tank.ph);
-         }
-         });
-        
-        }
-
-
-
-      // ngDoCheck() {
-        ngAfterContentInit() {
-        
-         console.log('works XXX');
-          this.tankSubscription =   this.tankService.tank.subscribe(tank => { 
-            if (tank === null) { 
-              console.log('works xxxa');
-              return
-            } else {
-              this.tank=tank; 
-              console.log('works `12334`');
-            }
-            });
-
-
-
-
-            setTimeout(() => {
-            
-                if(this.tank) {
-            console.log('works AA12');
-            this.createfinalFishesInTankList()
-                  this.evaluateFishes(); 
-                  this.evaluateTank();
-
-                  }
-
-           }, 300);
-
-     
-    }
+    });  
+    if(this.tank) { 
+      this.fishListSubscription = this.tankService.fishListSubject.subscribe(  fishDetail => {  
+        this.fishDetailList = fishDetail;  
+      }); 
+      this.fishDesciptionSubscription = this.fishService.fishesChanges
+      .subscribe(
+      (fishes: Fish[]) => { 
+        this.sortedFishes = fishes.sort(function(a, b) { 
+          return a.id - b.id;
+        })
+        this.fishes = fishes;
+      });  
+    }  
+  }
  
-    loadTank(){
-      this.dataService.fetchTank(); 
-     }
+     
 
-      createfinalFishesInTankList(){
-        this.finalFishesInTank = [];
+  ngOnChanges () {  
+    this.dataService.fetchTank(); 
+    this.tankSubscription =   this.tankService.tank.subscribe(tank => { 
+      if (tank === null) { 
+        return
+      } else {
+        this.tank=tank;  
+      }
+    }); 
+  } 
 
-        if(!this.fishDetailList) {
+  ngAfterContentInit() { 
+    this.tankSubscription =   this.tankService.tank.subscribe(tank => { 
+      if (tank === null) {  
+        return
+      } else {
+        this.tank=tank;  
+      }
+    });  
+    setTimeout(() => { 
+      if(this.tank) { 
+        this.createfinalFishesInTankList()
+        this.evaluateFishes(); 
+        this.evaluateTank(); 
+      } 
+    }, 300); 
+  }
+ 
+  loadTank(){
+    this.dataService.fetchTank(); 
+  }
 
-          this.fishListSubscription =     this.tankService.fishListSubject.subscribe(  fishDetail => {  
-          console.log('fishDetail is 233:'+JSON.stringify(fishDetail) )
-            this.fishDetailList = fishDetail;  
-             this.fishDetailList.forEach( (fishDetail)=> {  
-           }) 
-            });
+  createfinalFishesInTankList(){
+    this.finalFishesInTank = []; 
+    if(!this.fishDetailList) { 
+      this.fishListSubscription = this.tankService.fishListSubject.subscribe(  fishDetail => {   
+        this.fishDetailList = fishDetail; 
+      });
+    }
+    if(!this.sortedFishes || this.sortedFishes.length ===0) {
+      this.fishDesciptionSubscription =  this.fishService.fishesChanges
+      .subscribe(
+        (fishes: Fish[]) => { 
+          this.sortedFishes = fishes.sort(function(a, b) { 
+            return a.id - b.id;
+          })
+          this.fishes = fishes;
+        });  
+    } 
+    this.fishDetailList.forEach((fishDetail)=> { 
+      this.sortedFishes.forEach((fish) => { 
+        if (fishDetail.fishId === fish.id) { 
+          let newFishInTank = {...fish, ...fishDetail};
+          if(newFishInTank.count>0) {
+            this.finalFishesInTank.push(newFishInTank)
+          } 
         }
-        if(!this.sortedFishes || this.sortedFishes.length ===0) {
-          this.fishDesciptionSubscription =  this.fishService.fishesChanges
-          .subscribe(
-            (fishes: Fish[]) => {
-           
-             this.sortedFishes = fishes.sort(function(a, b) { 
-               return a.id - b.id;
-             })
-             this.fishes = fishes;
-             }); 
-            //  // // console.log('sortedFishes is 233:'+JSON.stringify(this.sortedFishes) )
+      })
+    })  
+    this.testvalue = 0;
+    this.finalFishesInTankSubject.next(this.finalFishesInTank); 
+  }
+
+
+  evaluateFishes() {
+    this.AllFishEval = []; 
+    this.finalFishesInTank.forEach((fish) => { 
+      let finalEval =0;
+      let isNotinSchoolifSchooling:boolean; 
+      if(fish.schooling) {
+        if(fish.count <5) {
+          finalEval+=2;
+          isNotinSchoolifSchooling=true;
         }
-
-
-               this.fishDetailList.forEach((fishDetail)=> {
-          
-          //     // // console.log('fishDetail is 2:'+JSON.stringify(fishDetail) )
-          //  // // console.log('sortedFishes is 2:'+JSON.stringify(this.sortedFishes) )
-              // this.finalFishesInTank = []
-            
-              this.sortedFishes.forEach((fish) => {
-               
-                if (fishDetail.fishId === fish.id) {
-             console.log('sortedFishes is XXX:'+fish.commonName ) 
-                  let newFishInTank = {...fish, ...fishDetail};
-                 if(newFishInTank.count>0) {
-                     this.finalFishesInTank.push(newFishInTank)
-                 }
-               
-
-
-                }
-              })
-             })
-             console.log('finalFishesInTank is 5555'+JSON.stringify(this.finalFishesInTank)) 
-             // // console.log('finalFishesInTank is 4'+JSON.stringify(this.finalFishesInTank[0]));
-             this.testvalue = 0;
-             this.finalFishesInTankSubject.next(this.finalFishesInTank);
-            //  this.testvalue = this.finalFishesInTank[0].count;
       }
 
+      let hoManytoAddToSchool:number = null;
+      if(fish.schooling && fish.count <5){
+        hoManytoAddToSchool = 5-fish.count;
+      }
 
-      evaluateFishes() {
-        this.AllFishEval = [];
-        // // // console.log('AllFishEval 1: '+JSON.stringify(this.AllFishEval[0].pHDiffFromGood))
-// // // console.log('this.tank.ph 2 is : '+ (this.tank.ph));
-        
-        this.finalFishesInTank.forEach((fish) => {
-          // // // console.log('works DD')
-          let finalEval =0;
-          let isNotinSchoolifSchooling:boolean; 
-          if(fish.schooling) {
-            if(fish.count <5) {
-              finalEval+=2;
-              isNotinSchoolifSchooling=true;
-            }
-          }
+      let lengthRatio:number =this.tank.length/fish.commonLength;
+      let depthRatio:number =this.tank.depth/fish.commonLength;
+      let heightRatio:number=this.tank.height/fish.commonLength;
+      if(lengthRatio<2) {
+        finalEval+=10;
+      } else if (lengthRatio<4) {
+        finalEval+=5;
+      }
+      if(depthRatio<1) {
+        finalEval+=10;
+      } else if (depthRatio<1.5) {
+        finalEval+=5;
+      }
+      if(heightRatio<1) {
+        finalEval+=10;
+      } else if (heightRatio<1.5) {
+        finalEval+=5;
+      }
 
-          let hoManytoAddToSchool:number = null;
-          if(fish.schooling && fish.count <5){
-            hoManytoAddToSchool = 5-fish.count;
-          }
+      let namesOfPredatorsInTank:string[] =[];
+      let dangerOfEaten:boolean = false;
+      let isBullied:boolean = false; 
+      let namesOfBulliesInTank:string[] =[]; 
+  
+      this.finalFishesInTank.forEach((otherFish) => {
+        if((otherFish.commonLength>(fish.commonLength*3))&& otherFish.calmness>3)  { 
+          dangerOfEaten = true;
+          namesOfPredatorsInTank.push(otherFish.commonName);
+          finalEval+=5;
+        } 
+        if(fish.calmness<2 && otherFish.calmness>2) {
+          finalEval++;
+          isBullied=true;
+          namesOfBulliesInTank.push(otherFish.commonName)
+        } 
+      })
 
-          let lengthRatio:number =this.tank.length/fish.commonLength;
-          let depthRatio:number =this.tank.depth/fish.commonLength;
-          let heightRatio:number=this.tank.height/fish.commonLength;
-          if(lengthRatio<2) {
-            finalEval+=10;
-          } else if (lengthRatio<4) {
-            finalEval+=5;
-          }
-          if(depthRatio<1) {
-            finalEval+=10;
-          } else if (depthRatio<1.5) {
-            finalEval+=5;
-          }
-          if(heightRatio<1) {
-            finalEval+=10;
-          } else if (heightRatio<1.5) {
-            finalEval+=5;
-          }
+      let isTempGood:boolean = false;
+      let tempDiffFromGood = 0;
+      if (this.tank.temperature>=fish.tempMin-0.26 && this.tank.temperature<=fish.tempMax+0.26) {
+        isTempGood=true;  
+      } else {
+        if (this.tank.temperature<fish.tempMin) {
+          tempDiffFromGood = this.tank.temperature-fish.tempMin;
+        } else {
+          tempDiffFromGood = this.tank.temperature-fish.tempMax;
+        };  
+        finalEval+= Math.abs(tempDiffFromGood);
+      } 
 
+      let isPHGood:boolean = false;
+      let pHDiffFromGood = 0; 
+      if (this.tank.ph>=fish.phMin-0.26 && this.tank.ph<=fish.phMax+0.26) { 
+        isPHGood=true;  
+      } else {
+        if (this.tank.ph<fish.phMin) { 
+          pHDiffFromGood = this.tank.ph-fish.phMin;
+        } else { 
+          pHDiffFromGood = this.tank.ph-fish.phMax;
+        }  
+        finalEval+= Math.abs(pHDiffFromGood);
+      } 
 
-
-          let namesOfPredatorsInTank:string[] =[];
-          let dangerOfEaten:boolean = false;
-          let isBullied:boolean = false; 
-          let namesOfBulliesInTank:string[] =[]; 
-       
-          this.finalFishesInTank.forEach((otherFish) => {
-            if((otherFish.commonLength>(fish.commonLength*3))&& otherFish.calmness>3)  { 
-              dangerOfEaten = true;
-              namesOfPredatorsInTank.push(otherFish.commonName);
-              finalEval+=5;
-            } 
-            if(fish.calmness<2 && otherFish.calmness>2) {
-              finalEval++;
-              isBullied=true;
-              namesOfBulliesInTank.push(otherFish.commonName)
-            } 
-          })
-
-          // if(!this.tank.temperature) {
-
-          //    let evaluation = new fishEval(fish.id,fish.commonName,isNotinSchoolifSchooling,hoManytoAddToSchool,
-          //     dangerOfEaten,namesOfPredatorsInTank,isBullied,namesOfBulliesInTank,lengthRatio,depthRatio,heightRatio,finalEval)
-          //    this.AllFishEval.push(evaluation)
-          // } else  
-
-
-          // {
-            let isTempGood:boolean = false;
-            let tempDiffFromGood = 0;
-            if (this.tank.temperature>=fish.tempMin-0.26 && this.tank.temperature<=fish.tempMax+0.26) {
-              isTempGood=true;  
-            } else {
-                if (this.tank.temperature<fish.tempMin) {
-                  tempDiffFromGood = this.tank.temperature-fish.tempMin;
-                } else {
-                  tempDiffFromGood = this.tank.temperature-fish.tempMax;
-                };  
-                finalEval+= Math.abs(tempDiffFromGood);
-            } 
-
-            let isPHGood:boolean = false;
-            let pHDiffFromGood = 0; 
-            if (this.tank.ph>=fish.phMin-0.26 && this.tank.ph<=fish.phMax+0.26) {
-              // // // console.log(' isPHGood=true;  ')
-              isPHGood=true;  
-            } else {
-                if (this.tank.ph<fish.phMin) {
-                  // // // console.log('this.tank.ph<fish.phMin')
-                  pHDiffFromGood = this.tank.ph-fish.phMin;
-                } else {
-                  // // // console.log('else')
-                  pHDiffFromGood = this.tank.ph-fish.phMax;
-                }  
-                finalEval+= Math.abs(pHDiffFromGood);
-            } 
-
-            let isDHGood:boolean = false;
-            let dHDiffFromGood = 0;
-            if (this.tank.dh>=fish.dhMin-0.26 && this.tank.dh<=fish.dhMax+0.26) {
-              isDHGood=true;  
-            } else {
-                if (this.tank.dh<fish.dhMin) {
-                  dHDiffFromGood = this.tank.dh-fish.dhMin;
-                } else {
-                  dHDiffFromGood = this.tank.dh-fish.dhMax;
-                }  
-                finalEval+= Math.abs(dHDiffFromGood);
-            } 
-            // // // console.log('works CC')
-             let evaluation = new fishEval(fish.id,fish.commonName,isNotinSchoolifSchooling,hoManytoAddToSchool,
-              dangerOfEaten,namesOfPredatorsInTank,isBullied,namesOfBulliesInTank,lengthRatio,depthRatio,heightRatio,finalEval, isTempGood,tempDiffFromGood,isPHGood,pHDiffFromGood,isDHGood,dHDiffFromGood)
-              // // // console.log('evaluation is: XX '+evaluation.pHDiffFromGood)
-             this.AllFishEval.push(evaluation) 
-            // // // console.log('AllFishEval is: XXXXX '+ JSON.stringify(this.AllFishEval))
-          // } 
-
-
-        }) 
-        // // // console.log('AllFishEval 3: '+JSON.stringify(this.AllFishEval[0].pHDiffFromGood))
-       }
+      let isDHGood:boolean = false;
+      let dHDiffFromGood = 0;
+      if (this.tank.dh>=fish.dhMin-0.26 && this.tank.dh<=fish.dhMax+0.26) {
+        isDHGood=true;  
+      } else {
+        if (this.tank.dh<fish.dhMin) {
+          dHDiffFromGood = this.tank.dh-fish.dhMin;
+        } else {
+          dHDiffFromGood = this.tank.dh-fish.dhMax;
+        }  
+        finalEval+= Math.abs(dHDiffFromGood);
+      }  
+      let evaluation = new fishEval(fish.id,fish.commonName,isNotinSchoolifSchooling,hoManytoAddToSchool,
+        dangerOfEaten,namesOfPredatorsInTank,isBullied,namesOfBulliesInTank,lengthRatio,depthRatio,heightRatio,finalEval, isTempGood,tempDiffFromGood,isPHGood,pHDiffFromGood,isDHGood,dHDiffFromGood)
+        this.AllFishEval.push(evaluation)   
+    })  
+  }
 
       evaluateTank() { 
-        if(!this.tank) {
-
+        if(!this.tank) { 
           this.dataService.fetchTank(); 
           this.tankSubscription =   this.tankService.tank.subscribe(tank => { 
            if (tank === null) { 
@@ -446,45 +324,32 @@ export class FishtankComponent implements OnInit, OnDestroy{
            } else {
              this.tank=tank; 
            }
-           });
-
+           }); 
         }
-
-
-
-
-         // // console.log('this.tank.ph XXX is : '+ (this.tank.ph));
+ 
         let id:number = this.tank.id;
         let volume:number = (this.tank.length * this.tank.height * this.tank.depth)/1000;
-        let neededVolume: number = 0;
-         let overcrowdedRatio:number=0;
+        let neededVolume: number = 0; 
         let TempSum:number=0; 
         let pHSum:number=0; 
         let dHSum:number=0;
-        let count:number=0;
-
-       
+        let count:number=0; 
         let isTempGood:boolean=true; 
-        let tempDifference: number=0;
-
+        let tempDifference: number=0; 
         let isPHGood:boolean=true; 
-        let pHDifference: number=0;
-
+        let pHDifference: number=0; 
         let isDHGood:boolean=true; 
-        let dHDifference: number=0;
-
-        let finalEval:number=0;  
-
+        let dHDifference: number=0; 
+        let finalEval:number=0;   
         let recommendedTemp:number;
         let recommendedPH:number;
-        let recommendedDH:number;
-        // // // console.log('finalFishesInTank is 11'+JSON.stringify(this.finalFishesInTank))
-          this.finalFishesInTank.forEach((fish) => {
+        let recommendedDH:number; 
+        this.finalFishesInTank.forEach((fish) => {
           count++;
-         neededVolume+=fish.commonLength*fish.count; 
-         TempSum+=fish.tempMin+fish.tempMax;
-         pHSum+=fish.phMin+fish.phMax;
-         dHSum+=fish.dhMin+fish.dhMax;
+          neededVolume+=fish.commonLength*fish.count; 
+          TempSum+=fish.tempMin+fish.tempMax;
+          pHSum+=fish.phMin+fish.phMax;
+          dHSum+=fish.dhMin+fish.dhMax;
 
          if(this.tank.temperature<fish.tempMin || this.tank.temperature>fish.tempMax) {
           isTempGood=false;
@@ -492,88 +357,47 @@ export class FishtankComponent implements OnInit, OnDestroy{
          }
 
          if(this.tank.ph<fish.phMin || this.tank.ph>fish.phMax) {
-          isPHGood=false;
-          // // console.log('finalEval is 11:'+finalEval)
-          finalEval += this.tank.ph<fish.phMin ? (fish.phMin-this.tank.ph)*2 : (this.tank.ph - fish.phMax)*2;
-          // // console.log('finalEval is 22:'+finalEval)
-         }
-
+          isPHGood=false; 
+          finalEval += this.tank.ph<fish.phMin ? (fish.phMin-this.tank.ph)*2 : (this.tank.ph - fish.phMax)*2; 
+         } 
          if(this.tank.dh<fish.dhMin || this.tank.dh>fish.dhMax) {
           isDHGood=false;
           finalEval += this.tank.dh<fish.dhMin ? (fish.dhMin-this.tank.dh) : (this.tank.dh - fish.dhMax);
-         }
-
+         } 
          recommendedTemp = TempSum/(count*2);
          recommendedPH = pHSum/(count*2);
          recommendedDH = dHSum/(count*2);
-         this.overcrowdedRatio = neededVolume/volume;
-
+         this.overcrowdedRatio = neededVolume/volume; 
          if(fish.commonLength>this.tank.length/2 || fish.commonLength>this.tank.depth || fish.commonLength>this.tank.height) {
           finalEval+=10;
          } else if(fish.commonLength>this.tank.length/4 || fish.commonLength>this.tank.depth/1.5 || fish.commonLength>this.tank.height/1.5) {
           finalEval+=4;
-         } 
-
-
+         }  
        }) 
 
        tempDifference = Math.abs(this.tank.temperature - recommendedTemp);
        pHDifference = Math.abs(this.tank.ph - recommendedPH);
-       dHDifference = Math.abs(this.tank.dh - recommendedDH);
-
-
-
-
-
-      //  // // console.log('neededVolume is'+neededVolume)
-      //  // // console.log('volume is'+volume)
-       if(neededVolume>volume) {
-        // // // console.log('worksAA')
+       dHDifference = Math.abs(this.tank.dh - recommendedDH); 
+       if(neededVolume>volume) { 
           finalEval += ((neededVolume/volume)-1)*10;
-       } else if ((volume/neededVolume)>=5) {
-        // // // console.log('worksBB')
+       } else if ((volume/neededVolume)>=5) { 
         finalEval -=5;
-       } else {
-
-
+       } else { 
         finalEval+= -(volume/neededVolume)
-       }
-       
-        
-
-
-
+       } 
        this.tankEval = new tankEval(id,volume,neededVolume,tempDifference,recommendedTemp,pHDifference,recommendedPH,dHDifference,recommendedDH,finalEval,isTempGood,isPHGood,isDHGood);
-      //  // // console.log('finalFishesInTank is 4:'+JSON.stringify(this.finalFishesInTank) )
-      this.tankScore = finalEval;
-      // // console.log('finalFishesInTank is 6'+JSON.stringify(this.finalFishesInTank[0]));
-      }
-
-      show() {
-        // this.finalFishesInTank=[1];
-      // console.log('finalFishesInTank IN SHOW'+JSON.stringify(this.finalFishesInTank[0]));
-      console.log('this.tank is : '+JSON.stringify(this.tank));
-      console.log('finalFishesInTankSubject IN SHOW'+JSON.stringify(this.finalFishesInTankSubject.getValue()));
-      //  // // console.log('tank in main component is'+JSON.stringify(this.tank))
-        // // // console.log('pH in tank is'+this.tank.ph)
-        //  // // console.log('AllFishEval 2: '+JSON.stringify(this.AllFishEval[0].pHDiffFromGood))
-        //  // // console.log('AllFishEval 3: '+JSON.stringify(this.AllFishEval[0]))
-      }
-
+       this.tankScore = finalEval;
+       } 
    
-          ngOnDestroy() {
-            this.finalFishesInTank=[];
-            console.log('destroyed')
-            this.tankSubscription.unsubscribe;
-            if(this.fishListSubscription) {
-                this.fishListSubscription.unsubscribe;
-            }
-          
-
-            if(this.fishDesciptionSubscription) {
-              this.fishDesciptionSubscription.unsubscribe;
-          }
-         
-          }
+  ngOnDestroy() {
+    this.finalFishesInTank=[]; 
+    this.tankSubscription.unsubscribe;
+    if(this.fishListSubscription) {
+      this.fishListSubscription.unsubscribe;
+    } 
+    if(this.fishDesciptionSubscription) {
+      this.fishDesciptionSubscription.unsubscribe;
+    } 
+  }
 }
  

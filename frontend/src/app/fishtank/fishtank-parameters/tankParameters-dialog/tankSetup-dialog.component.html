@@ -1,64 +1,51 @@
 <div  class="dialogContainer ">
     <span *ngIf="titleName" style="font-size: 24px;"> {{this.tank.tankName}}'s parameters  </span>
     <span *ngIf="!titleName" style="font-size: 24px;"> New tank parameters  </span>
-    <form [formGroup]="tankForm" >
-
-            <div class="row" style="padding-top: 20px;">
-                <div class="col-xs-12">
-                    <div class="form-group ">
-                        <label for="name">Tank name</label>
-                        <input type="text"
-                        id="name" class="form-control"
-                        name="tankName"
-                        formControlName="tankName">
-                    </div>
+    <form [formGroup]="tankForm"> 
+        <div class="row" style="padding-top: 20px;">
+            <div class="col-xs-12">
+                <div class="form-group ">
+                    <label for="name">Tank name</label>
+                    <input type="text"
+                    id="name" class="form-control"
+                    name="tankName"
+                    formControlName="tankName">
                 </div>
-             </div>
-                <div *ngIf=" tankName.invalid && ( tankName.dirty ||  tankName.touched)" class="alert" style="padding: 0px;">
-                    <div *ngIf="tankName.errors?.['required']">Name is required.</div>
-                    <div *ngIf="tankName.errors?.['minlength']">
-                        Name must be at least 4 characters long.
-                    </div>
-                    
-                </div>
-
-        <div class="formContainer ">  
-             
-
-
-
-
-            <div class="leftPanel "> 
-
-              
-         
-                
+            </div>
+        </div>
+        <div *ngIf=" tankName.invalid && ( tankName.dirty ||  tankName.touched)" class="alert" style="padding: 0px;">
+            <div *ngIf="tankName.errors?.['required']">Name is required.</div>
+            <div *ngIf="tankName.errors?.['minlength']">
+                Name must be at least 4 characters long.
+            </div> 
+        </div> 
+        <div class="formContainer">   
+            <div>  
                 <div>
                     <div class="row dimension">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <label class="labelForm" for="name">Length
-                                                    <input type="number"
-                                                    id="name" class="form-control"
-                                                    formControlName="length">
-                                                    <span class="unitForm">cm</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="labelForm" for="name">Length
+                                    <input type="number"
+                                    id="name" class="form-control"
+                                    formControlName="length">
+                                    <span class="unitForm">cm</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row dimension">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <label  class="labelForm" for="name">Height
-                                                    <input type="number"
-                                                    id="name" class="form-control"
-                                                    formControlName="height">
-                                                    <span class="unitForm">cm</span>
-                                                </label> 
-                                            </div>
-                                        </div>
-                                        </div>
-
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label  class="labelForm" for="name">Height
+                                    <input type="number"
+                                    id="name" class="form-control"
+                                    formControlName="height">
+                                    <span class="unitForm">cm</span>
+                                </label> 
+                            </div>
+                        </div>
+                    </div> 
                     <div class="row dimension">
                         <div class="col-xs-12">
                             <div class="form-group">
@@ -71,50 +58,33 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-
-                </div>
-                
-                    
-            </div> 
-
-            <div  class="slidersContainer rightPanel">
-
+                    </div> 
+                </div> 
+            </div>  
+            <div class="slidersContainer rightPanel"> 
                 <div *ngIf="editWaterParams" class="row">
                     <div class="col-xs-12">
                         <div class="form-group sliderContainer">
                             <label class="label" for="name" style="width:90px">pH</label>
 
                             <mat-slider class="container_lengthSlider" min="1" max="14" step="0.5">
-                                <input formControlName="ph"   matSliderThumb   #sliderPH 
-                            >
+                                <input formControlName="ph"   matSliderThumb   #sliderPH>
                             </mat-slider>
-                            <label class="example-value-label">{{sliderPH.value}}</label> 
-
-
-
-                            <!-- <input type="number"
-                            id="name" class="form-control"
-                            formControlName="ph"> -->
+                            <label class="example-value-label">{{sliderPH.value}}</label>  
                         </div>
                     </div>
-                </div>
-
+                </div> 
                 <div *ngIf="editWaterParams" class="row ">
-                            <div class="col-xs-12">
-                                <div class="form-group sliderContainer">
-                                    <label  class="label" for="name" style="width:90px">Hardness</label>
-
-                                    <mat-slider class="container_lengthSlider" min="0" max="30" step="0.5">
-                                        <input formControlName="dh"   matSliderThumb   #sliderDH 
-                                    >
-                                    </mat-slider>
-                                    <label class="example-value-label">{{sliderDH.value}}</label> 
-
-                                </div>
-                            </div>
-                </div>
-
+                    <div class="col-xs-12">
+                        <div class="form-group sliderContainer">
+                            <label  class="label" for="name" style="width:90px">Hardness</label> 
+                            <mat-slider class="container_lengthSlider" min="0" max="30" step="0.5">
+                                <input formControlName="dh"   matSliderThumb   #sliderDH>
+                            </mat-slider>
+                            <label class="example-value-label">{{sliderDH.value}}</label>  
+                        </div>
+                    </div>
+                </div> 
                 <div *ngIf="editWaterParams" class="row">
                     <div class="col-xs-12">
                         <div class="form-group sliderContainer">
@@ -124,44 +94,31 @@
                             </mat-slider>
                             <label class="example-value-label">{{sliderTemp.value}}<span  style=' vertical-align: super;font-size: 70%'>o</span>C</label>  
                         </div>
-                    </div>
-
-                </div>
-
+                    </div> 
+                </div> 
                 <div class="option"  *ngIf="!editWaterParams">
-                                    <p style="font-size: 10px; margin: 0px;">The optimal water parameters can best be estimated once you add some fish</p>
-                                    <button style="font-size: 10px;" type="button" class="btn btn-warning" (click)="onShowWaterParamsForm()">I want to edit the parameters anyway</button>
-                        </div> 
+                    <p style="font-size: 10px; margin: 0px;">The optimal water parameters can best be estimated once you add some fish</p>
+                    <button style="font-size: 10px;" type="button" class="btn btn-warning" (click)="onShowWaterParamsForm()">I want to edit the parameters anyway</button>
+                </div> 
             </div>
-        </div>
-        
-    </form> 
-
-
+        </div> 
+    </form>  
+    <button  
+        *ngIf="isTankSetup"
+        [disabled]="!tankForm.valid"
+        class="btn btn-info buttonSuggestion" (click)="onFindWaterParams()" type="button" 
+        >
+        <span class="suggestion">Find optimal water parameters</span>
+    </button>  
+    <div class="bottomButtonsContainer"> 
         <button  
-                *ngIf="isTankSetup"
-                [disabled]="!tankForm.valid"
-                class="btn btn-info buttonSuggestion" (click)="onFindWaterParams()" type="button" 
-                >
-                <span class="suggestion">Find optimal water parameters</span>
-        </button> 
-
-        <div class="bottomButtonsContainer">
-           
-            <button  
             [disabled]="!tankForm.valid"
-            class="btn btn-primary" (click)="onUpdateTank()" type="button"
-            >
+            class="btn btn-primary" (click)="onUpdateTank()" type="button">
             <span class="caret" [innerHTML]='isTankSetup ? "Update my tank" : "Create my TANK"'></span>
-            </button> 
-            <button  
-            
-            class="btn btn-secondary" (click)="onCloseDialog()" type="button"
-            >
+        </button> 
+        <button   
+            class="btn btn-secondary" (click)="onCloseDialog()" type="button">
             <span class="caret" >Don't update</span>
-            </button> 
-            
-        </div>
-
-
+        </button>  
+    </div> 
 </div>

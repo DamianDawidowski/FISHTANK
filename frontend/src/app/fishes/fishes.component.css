@@ -1,12 +1,12 @@
 .container_fishes {
     display:flex;
-margin:auto;
+    margin:auto;
 }
 
 .containerList {
     margin:30px;
-width:  80vw;;
-display: flex;
+    width: 80vw;
+    display: flex;
 
 }
 

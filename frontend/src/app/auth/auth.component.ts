@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { UserService } from './user.service';
 
 @Component({
@@ -8,10 +8,7 @@ import { UserService } from './user.service';
 })
 export class AuthComponent {
   constructor(private userService: UserService) { } 
-
-  // @Output() onSubmitLoginEvent = new EventEmitter();
-  // @Output() onSubmitRegisterEvent = new EventEmitter();
-
+ 
 	active: string = "login";
   firstName: string = "";
   lastName: string = "";
@@ -27,15 +24,10 @@ export class AuthComponent {
 	}
 
   onSubmitLogin(): void {
-    // this.onSubmitLoginEvent.emit({"login": this.login, "password": this.password});
     this.userService.onLogin({"login": this.login, "password": this.password});
-
-
-
   }
 
   onSubmitRegister(): void {
-   // this.onSubmitRegisterEvent.emit({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password});
     this.userService.onRegister({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password});
   }
 

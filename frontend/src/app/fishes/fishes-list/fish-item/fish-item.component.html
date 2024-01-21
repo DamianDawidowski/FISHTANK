@@ -1,15 +1,12 @@
 <div class="containerFish ">
-<a style="cursor: pointer" routerLinkActive="active" class="list-group-item clearfix border-primary" [routerLink]="index">
-    <div class="names">
-        <h4 class="list-group-item-heading  textAdjust"> {{fish.commonName}}</h4>
-        <p class="list-group-teim-text italics" >{{fish.latinName}}</p>
-    </div>
-    <span class="pull-right imageContainer">
-        <img [src]="fish.pictureLink" alt="{{ fish.commonName}}"
-         class="img-responsive" style="max-height: 50px;">
-    </span>
-</a>
-
-</div>
-
-
+    <a style="cursor: pointer" routerLinkActive="active" class="list-group-item clearfix border-primary" [routerLink]="index">
+        <div>
+            <h4 class="list-group-item-heading  textAdjust"> {{fish.commonName}}</h4>
+            <p class="list-group-teim-text italics" >{{fish.latinName}}</p>
+        </div>
+        <span class="pull-right imageContainer">
+            <img [src]="fish.pictureLink" alt="{{ fish.commonName}}"
+            class="img-responsive" style="max-height: 50px;">
+        </span>
+    </a> 
+</div> 

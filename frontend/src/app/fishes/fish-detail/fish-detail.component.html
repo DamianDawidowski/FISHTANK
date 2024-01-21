@@ -1,73 +1,56 @@
 <div class="row">
     <div class="col-xs-12 imageContainer">
         <img 
-        [src]=  fish.pictureLink   
+        [src]= fish.pictureLink   
         alt="{{ fish.commonName }}" 
         class="img-responsive"
         style="max-height: 400px; max-width: 300px;">
     </div>
 </div>
-    <div *ngIf="!showEditForm"> 
-        <h1>{{ fish.commonName }}</h1>
- 
-          <div class=" container_fishDetails">  
-             <div class="col-xs-12">
-             <span class="italics">{{ fish.latinName }}</span> 
-              <br>
-                Adult length: {{ fish.commonLength }} cm 
-                <br>
-                {{calmnessMessage}}
-                <br>
-                <p *ngIf="fish.schooling">Schooling fish</p>
-                <br>
-                <p>  You currently have {{fishCount}} {{fish.commonName}} in your tank</p>
-            </div>
-
-            <div>
-        <span>Water parameters</span>
-        <ul>
-            <li> Water temperature: {{ fish.tempMin }} - {{ fish.tempMax }}<span style=' vertical-align: super;font-size: 70%'>o</span><span>C</span></li>
-            <li>Water pH:  {{ fish.phMin }} - {{ fish.phMax }}</li>
-            <li>Water hardness:  {{ fish.dhMin }} - {{ fish.dhMax }} dH</li>
-        </ul>
-       
-    </div>
+<div *ngIf="!showEditForm"> 
+    <h1>{{ fish.commonName }}</h1> 
+    <div class=" container_fishDetails">  
+        <div class="col-xs-12">
+            <span class="italics">{{ fish.latinName }}</span> 
+            <br>
+            Adult length: {{ fish.commonLength }} cm 
+            <br>
+            {{calmnessMessage}}
+            <br>
+            <p *ngIf="fish.schooling">Schooling fish</p>
+            <br>
+            <p>You currently have {{fishCount}} {{fish.commonName}} in your tank</p>
         </div> 
-    </div>
-    <div  *ngIf="showEditForm">
-
-       <app-fish-edit></app-fish-edit>
-
-
-
-    </div>
-
-
-
+        <div>
+            <span>Water parameters</span>
+            <ul>
+                <li> Water temperature: {{ fish.tempMin }} - {{ fish.tempMax }}<span style=' vertical-align: super;font-size: 70%'>o</span><span>C</span></li>
+                <li>Water pH: {{ fish.phMin }} - {{ fish.phMax }}</li>
+                <li>Water hardness: {{ fish.dhMin }} - {{ fish.dhMax }} dH</li>
+            </ul> 
+        </div>
+    </div> 
+</div>
+<div  *ngIf="showEditForm"> 
+    <app-fish-edit></app-fish-edit> 
+</div> 
 <div class="row ">
     <div class="col-xs-12 ">
-        <div class="  buttonsContainer">
-
-            <button  *ngIf="!addFishMode && this.tank &&!deleteConfirmation" 
+        <div class=" buttonsContainer"> 
+            <button *ngIf="!addFishMode && this.tank &&!deleteConfirmation" 
                 class="btn btn-primary btnAdjust btnAdjust" (click)="onAddFishToTank()" style="max-width: 140px;">
                 {{fishGroup.count === 0 ? 'Add to Tank!' : 'Adjust count'}}<span class=""></span>
-            </button> 
- 
-            <button *ngIf="!addFishMode  &&!deleteConfirmation" 
+            </button>  
+            <button *ngIf="!addFishMode &&!deleteConfirmation" 
                 class="btn btn-primary btnAdjust" (click)="onFishEdit()">
                 Edit info <span class=""></span>
-            </button> 
-           
-
+            </button>  
             <div *ngIf="addFishMode"> 
-                <div class="inputContainer"> 
-                    Adjust the number of {{fish.commonName}} in your tank
-                <input type="number"
-                id="name" class="form-control countInput"
-                
-                [(ngModel)]="fishGroup.count" > 
-                </div>
-                 
+                <div class="inputContainer">Adjust the number of {{fish.commonName}} in your tank
+                    <input type="number"
+                    id="name" class="form-control countInput" 
+                    [(ngModel)]="fishGroup.count"> 
+                </div> 
                 <div class="changeContainer"> 
                     <button 
                         class="btn btn-primary" (click)="onCreateFishGroup()">
@@ -79,34 +62,21 @@
                         class="btn btn-secondary" (click)="onNotAddFishToTank()">
                         Don't change anything <span class=""></span>
                     </button> 
-                </div>
-               
-           </div> 
-
-        <button *ngIf="!deleteConfirmation && !addFishMode" 
-            class="btn btn-danger   btnAdjust" (click)="onDeletefish()">
-            Delete Fish <span class=""></span>
-        </button>
-
-
-        <button *ngIf="deleteConfirmation && !addFishMode" 
-            class="btn btn-danger  btnAdjust"  data-bs-dismiss="modal" (click)="deletefish()">
-            Confirm deletion! <span class=""></span>
-        </button>
-
-        <button *ngIf="deleteConfirmation && !addFishMode" 
-        class="btn btn-secondary  btnAdjust" (click)="onDontDelete()">
-        Don't delete <span class=""></span>
-        </button>
-        <!-- <ul >
-            
-            <li><a style="cursor: pointer;" (click)="sendToEditPage()">Edit Recipie</a></li>
-            <li><a style="cursor: pointer;" (click)="deletefish()">Delete Recipe</a></li>
-        </ul> -->
+                </div> 
+           </div>  
+            <button *ngIf="!deleteConfirmation && !addFishMode" 
+                class="btn btn-danger btnAdjust" (click)="onDeletefish()">
+                Delete Fish <span class=""></span>
+            </button> 
+            <button *ngIf="deleteConfirmation && !addFishMode" 
+                class="btn btn-danger btnAdjust" data-bs-dismiss="modal" (click)="deletefish()">
+                Confirm deletion! <span class=""></span>
+            </button> 
+            <button *ngIf="deleteConfirmation && !addFishMode" 
+                class="btn btn-secondary btnAdjust" (click)="onDontDelete()">
+                Don't delete <span class=""></span>
+            </button> 
         </div>
     </div>
-</div>
-<div class="row">
-    
-</div>
+</div> 
  

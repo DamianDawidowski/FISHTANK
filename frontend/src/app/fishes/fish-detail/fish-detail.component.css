@@ -35,11 +35,8 @@
    
 }
 
-.btnAdjust {
-    /* font-size: 12px;  */
-    height: 50px;
-    /* width: 120px;
-    max-width: 120px */
+.btnAdjust { 
+    height: 50px; 
 }
 
 .italics {

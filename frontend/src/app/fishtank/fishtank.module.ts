@@ -13,8 +13,7 @@ import { Rounding } from "../shared/roundingPipe";
 import { MatDialogModule, MatDialogRef } from "@angular/material/dialog"; 
 import { fishIconDialog } from "./fishlist-intank/fishIcon-dialog/fishIcon-dialog.component";
 import { fishNumberDialog } from "./fishlist-intank/fishNumber-dialog/fishNumber-dialog.component";
-import { TankSetupDialog } from "./fishtank-parameters/tankParameters-dialog/tankSetup-dialog.component";
-import { FishtankPreview } from "../fishes/fishtank-preview/fishtank-preview.component";
+import { TankSetupDialog } from "./fishtank-parameters/tankParameters-dialog/tankSetup-dialog.component"; 
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 
@@ -29,24 +28,21 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
         TankParameterEvalDialog,
         fishIconDialog,
         fishNumberDialog,
-        TankSetupDialog, 
-        
+        TankSetupDialog,  
     ],
     exports: [ 
         Rounding,
         FishtankComponent
     ],
     imports: [
-       RouterModule,   
-       FishtankRoutingModule,
-  ReactiveFormsModule,
-  MatSliderModule,
-    //   RecipesRoutingModule, 
-    CommonModule,
-    MatDialogModule,
-    SlideToggleOverviewExample,
-    MatSlideToggleModule
-    //   SharedModule
+        RouterModule,   
+        FishtankRoutingModule,
+        ReactiveFormsModule,
+        MatSliderModule, 
+        CommonModule,
+        MatDialogModule,
+        SlideToggleOverviewExample,
+        MatSlideToggleModule 
     ],
     providers: [
         fishlistIntank, FishtankComponent ], 

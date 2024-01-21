@@ -1,28 +1,23 @@
 .fishlistWrapper {
-max-height: 35vw;
-
+  max-height: 35vw; 
   overflow-y: auto;
   margin-right: 10px;
 }
 
 .fishMainContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-     padding-left: 8px;
-    /* border: 5px;
-    border-color: rgb(223, 62, 62);
-     border-style: solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding-left: 8px; 
 }
 
 .iconContainer {
-    position: relative;
-    top:-4px;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    height:18px;
+  position: relative;
+  top:-4px;
+  display: flex; 
+  align-items: center;
+  height:18px;
 }
 
 .okContainer{
@@ -32,7 +27,7 @@ max-height: 35vw;
 }
 
 .icon {
-    width:20px;
+  width:20px;
 }
 
 .iconAdjust{
@@ -50,109 +45,74 @@ max-height: 35vw;
 
 
 .fishContainer {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-    width:140px;
-
+  display: flex;
+  align-items: center; 
+  width:140px; 
 }
-
-
-
-
-.smallFishContainer {
-    /* max-width: 50px; */
-    width: 70px;
-    text-align: center;
+ 
+.smallFishContainer { 
+  width: 70px;
+  text-align: center;
 }
 
 .fishImage{
-    max-height: 50px;
-    max-width: 70px;
-    margin: auto;
+  max-height: 50px;
+  max-width: 70px;
+  margin: auto;
 }
 
 .firstSpan {
-     padding-left: 10px;
-     padding-right: 10px;
-     font-size: 18px;
-     overflow: hidden;
-     white-space: nowrap;
-     font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
 }
 
 .secondSpan {
-    font-size: 16px;
-    font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
+}
+ 
+.blink1 { 
+    animation: blinkerOk ease 1s infinite;
 }
 
+.blink2 { 
+  animation: blinker2 ease 1s infinite;
+}
 
+.blink3 { 
+  animation: blinker3 ease 0.4s infinite;
+}
 
-
-
-
-
-.blink1 {
-    /* animation: blinker 1s step-start infinite; */
-    animation: blinkerOk ease  1s infinite;
+@keyframes blinkerOk {
+  100% { 
+    background-color: green; 
+    color: green;
+    box-shadow: 0px 0px 9px 0px green; 
   }
-  .blink2 {
-    /* animation: blinker 1s step-start infinite; */
-    animation: blinker2 ease  1s infinite;
-  }
-  .blink3 {
-    /* animation: blinker 1s step-start infinite; */
-    animation: blinker3 ease  0.4s infinite;
-  }
-
-  @keyframes blinkerOk {
-    100% {
-      /* opacity: 0; */
-      background-color: green;
-      /* border: 4px red; */
-      color: green;
-      box-shadow: 0px 0px 9px 0px green;
-      /* font-size: 40px; */
-    }
-  }
+}
   
-  @keyframes blinker1 {
-    100% {
-      /* opacity: 0; */
-      /* background-color: green; */
-      /* border: 4px red; */
-      color: green;
-      /* box-shadow: 0px 0px 9px 0px green; */
-      /* font-size: 40px; */
-    }
+@keyframes blinker1 {
+  100% { 
+    color: green; 
   }
-  @keyframes blinker2 {
-    100% {
-      /* opacity: 0; */
-      /* background-color: red; */
-      /* border: 4px red; */
-      color: orange;
-      /* font-size: 40px; */
-    }
-  }
-  @keyframes blinker3 {
-    100% {
-      /* opacity: 0; */
-      /* background-color: red; */
-      /* border: 4px red; */
-      color: red;
-      /* font-size: 40px; */
-    }
 }
 
+@keyframes blinker2 {
+  100% { 
+    color: orange; 
+  }
+}
 
-/* .okContainer {  
-  box-shadow: 0px 0px 9px 4px green;
-} */
-
+@keyframes blinker3 {
+  100% { 
+    color: red; 
+  }
+}
  
- 
-
 @media (min-width: 1280px){
   .fishlistWrapper{
       width: 20vw;

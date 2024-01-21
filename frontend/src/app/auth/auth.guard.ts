@@ -9,25 +9,21 @@ import { Observable, map, take } from "rxjs";
     {providedIn: 'root'}
     )
   export class AuthGuard implements CanActivate {
-  constructor(private userService: UserService, private router: Router) {}
-  
-  
+    constructor(private userService: UserService, private router: Router) {}
+   
       canActivate(
           route: ActivatedRouteSnapshot,
           router: RouterStateSnapshot
           ): boolean | Promise<boolean | UrlTree> | Observable<boolean | UrlTree> 
           | UrlTree{
           return this.userService.user.pipe(
-             take(1),
-             map(user => {
+            take(1),
+            map(user => {
             const isAuth = !!user; 
             if(isAuth) {
               return true;
             }
             return this.router.createUrlTree(['/auth'])
           }));
-      }
-  
-  
-  
+      } 
   }

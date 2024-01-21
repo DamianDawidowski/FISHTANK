@@ -1,14 +1,11 @@
 <div class="dialogContainer">
     <span *ngIf="this.type === 'aggresors'">{{fishName}} may be threatened by its more active or aggresive tankmate<span *ngIf="aggresors.length>1">s</span>    
         <span *ngFor="let aggroFish of aggresors, let i=index "> {{aggroFish}}<span *ngIf="i<aggresors.length-1&&aggresors.length>2">,</span> <span *ngIf="i===aggresors.length-2"> and</span></span>.
-    </span>
-
+    </span> 
     <span *ngIf="this.type === 'predators'">{{fishName}} is in danger of being eaten by the
         <span *ngFor="let predator of predators, let i=index ">{{predator}}<span *ngIf="i<predators.length-1&&predators.length>2">, </span> <span *ngIf="i===predators.length-2"> and </span></span>!
-    </span>
-
+    </span> 
     <span *ngIf="this.type === 'school'">{{fishName}} is a schooling fish, please consider adding at least {{differenceValue}} more.</span>
-
     <span *ngIf="this.type === 'dimensions'">
         {{tankName}} has 
         <span *ngIf="this.lengthRatio <4">  
@@ -28,13 +25,11 @@
             <br>
         For {{fishName}}, the recommended minimum dimensions are {{desiredLength}} cm x {{desiredDepth}} cm x {{desiredHeight}} cm.
     </span>
-
     <span *ngIf="this.type === 'pH'">The pH of your tank is {{absoluteDifferenceValue}} points
         <span *ngIf="differenceValue <0"> below the minimum </span>
         <span *ngIf="differenceValue >0"> above the maximum</span> 
         tolerated by {{fishName}}.
     </span>
-
     <span *ngIf="this.type === 'temperature'">The temperature of your tank is {{absoluteDifferenceValue}}<span  style=' vertical-align: super;font-size: 70% '>o</span>
         <span>C</span>
         points
@@ -42,13 +37,11 @@
         <span *ngIf="differenceValue >0"> above the maximum</span> 
         tolerated by {{fishName}}.
     </span>
-
     <span *ngIf="this.type === 'dH'">The water hardness of your tank is {{absoluteDifferenceValue}}dH points
         <span *ngIf="differenceValue <0"> below the minimum </span>
         <span *ngIf="differenceValue >0"> above the maximum</span> 
         tolerated by {{fishName}}.
     </span>
-
     <span *ngIf="this.type === 'overcrowded'">
         {{tankName}} has 
         <span *ngIf="differenceValue> 1.4">way</span>
@@ -56,7 +49,6 @@
         <br>
         Please check the right panel for suggestions for minimum desired tank volume and modify its dimensions appropriately.
     </span>
-
     <span *ngIf="this.type === 'ok'">
         {{tankName}} should be a good home for the {{fishName}}. 
         <br>

@@ -20,25 +20,20 @@ export class Fish {
   // 4 - aggresive and territorial;
   // 5 - predatory and piscivorous;
   // 6 - extremely aggresive, suggested monospecies tank;
-   public calmness: number;
+  public calmness: number;
 
   constructor( commonName: string, latinName: string, commonLength: number, pictureLink: string, phMin: number, phMax: number, dhMmin: number, dhmax: number, tempMin: number, tempMax: number, calmness: number, schooling: boolean) {
-      
-    
     this.commonName = commonName;
-      this.latinName = latinName;
-      this.commonLength = commonLength;
-      this.pictureLink = pictureLink;
-      this.phMin = phMin;
-      this.phMax = phMax;
-      this.dhMin = dhMmin;
-      this.dhMax = dhmax;
-      this.tempMin = tempMin;
-      this.tempMax = tempMax; 
-      this.calmness = calmness; 
-      this.schooling = schooling;
-  }
-
- 
-
+    this.latinName = latinName;
+    this.commonLength = commonLength;
+    this.pictureLink = pictureLink;
+    this.phMin = phMin;
+    this.phMax = phMax;
+    this.dhMin = dhMmin;
+    this.dhMax = dhmax;
+    this.tempMin = tempMin;
+    this.tempMax = tempMax; 
+    this.calmness = calmness; 
+    this.schooling = schooling;
+  } 
 }

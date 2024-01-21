@@ -14,8 +14,7 @@
                     formControlName="commonName">
                 </div>
             </div>
-        </div>
-
+        </div> 
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-group">
@@ -25,8 +24,7 @@
                     formControlName="latinName">
                 </div>
             </div>
-        </div>
-
+        </div> 
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-group">
@@ -37,74 +35,57 @@
                     #imagePath>
                 </div>
             </div>
-        </div>
-
+        </div> 
         <div class="row">
             <div class="col-xs-12">
-                <div class="form-group ">
-                    <label for="commonLength">Length</label>
-
+                <div class="form-group">
+                    <label for="commonLength">Length</label> 
                     <mat-slider class="container_lengthSlider" min="1" max="150" step="0.5">
-                        <input formControlName="commonLength"   matSliderThumb   #slider 
-                    >
+                        <input formControlName="commonLength" matSliderThumb #slider>
                     </mat-slider>
-                    <label class="example-value-label">{{slider.value}} cm</label> 
-
+                    <label class="example-value-label">{{slider.value}} cm</label>  
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <div class="form-group ">
-                    <label for="">Desired water pH range</label>
-    
+                <div class="form-group">
+                    <label for="">Desired water pH range</label> 
                     <mat-slider class="container_lengthSlider" min="1" max="14" step="0.5" >
-                        <input formControlName="phMin" matSliderStartThumb formControlName="phMin"   #phMin  >
-                        <input formControlName="phMax" matSliderEndThumb formControlName="phMax"   #phMax  >
-                
+                        <input formControlName="phMin" matSliderStartThumb formControlName="phMin" #phMin>
+                        <input formControlName="phMax" matSliderEndThumb formControlName="phMax" #phMax> 
                     </mat-slider>
-                    <label class="example-value-label">{{phMin.value}} - {{phMax.value}}</label> 
-
+                    <label class="example-value-label">{{phMin.value}} - {{phMax.value}}</label>  
                 </div>
             </div>
-        </div>
-    
+        </div> 
         <div class="row">
             <div class="col-xs-12">
-                <div class="form-group ">
-                    <label for="">Desired water hardness [dH]</label>
-    
+                <div class="form-group">
+                    <label for="">Desired water hardness [dH]</label> 
                     <mat-slider class="container_lengthSlider" min="0" max="30" step="0.5" >
-                        <input formControlName="dhMin" matSliderStartThumb formControlName="dhMin"   #dhMin  >
-                        <input formControlName="dhMax" matSliderEndThumb formControlName="dhMax"   #dhMax  >
-                
+                        <input formControlName="dhMin" matSliderStartThumb formControlName="dhMin" #dhMin>
+                        <input formControlName="dhMax" matSliderEndThumb formControlName="dhMax" #dhMax> 
                     </mat-slider>
-                    <label class="example-value-label">{{dhMin.value}} - {{dhMax.value}}</label> 
-
+                    <label class="example-value-label">{{dhMin.value}} - {{dhMax.value}}</label>  
                 </div>
             </div>
-        </div>
-
+        </div> 
         <div class="row">
             <div class="col-xs-12">
-                <div class="form-group ">
-                    <label for="">Desired water temperature [<span style=' vertical-align: super;font-size: 70%'>o</span>C]</label>
-    
-    
+                <div class="form-group">
+                    <label for="">Desired water temperature [<span style=' vertical-align: super;font-size: 70%'>o</span>C]</label> 
                     <mat-slider class="container_lengthSlider" min="0" max="40" step="0.5" >
-                        <input formControlName="tempMin" matSliderStartThumb formControlName="tempMin"   #tempMin  >
-                        <input formControlName="tempMax" matSliderEndThumb formControlName="tempMax"   #tempMax  >
-                
+                        <input formControlName="tempMin" matSliderStartThumb formControlName="tempMin" #tempMin>
+                        <input formControlName="tempMax" matSliderEndThumb formControlName="tempMax" #tempMax> 
                     </mat-slider>
-                    <label class="example-value-label">{{tempMin.value}} - {{tempMax.value}}</label> 
-
+                    <label class="example-value-label">{{tempMin.value}} - {{tempMax.value}}</label>  
                 </div>
             </div>
-        </div>
-
+        </div> 
         <div class="row">
             <div class="col-xs-12">
-                <div class="form-group ">
+                <div class="form-group">
                     <label for="commonLength">Calmness</label>
                     <select 
                     name="contactMethod" 
@@ -115,46 +96,32 @@
                     </select> 
                 </div>
             </div>
-        </div>
- 
-
+        </div> 
             <div class="row isSchoolingContainer">
                 <div class="col-xs-12" style="padding: 0px;">
-                    <div class="form-group ">
+                    <div class="form-group">
                         <label for="commonLength">Is it a schooling fish?</label>
                         <input
                         formControlName="schooling"
                         type="checkbox"
                         [checked]="schooling"
-                        (change)="schooling = !schooling"/>
-    
-    
-                        <!-- <label class="example-value-label">{{slider.value}} cm</label>  -->
-    
+                        (change)="schooling = !schooling"/> 
                     </div>
                 </div>
-            </div> 
-
-    </form>
-
-    <div  class="changeContainer">
-
-        <button  *ngIf="this.id"
-            class="btn btn-primary " data-bs-dismiss="modal" (click)="onSaveEditedFish()" type="submit">
+            </div>  
+    </form> 
+    <div class="changeContainer"> 
+        <button *ngIf="this.id"
+            class="btn btn-primary" data-bs-dismiss="modal" (click)="onSaveEditedFish()" type="submit">
             Update this Fish <span class="caret"></span>
-        </button> 
-
-        <button  *ngIf="this.id"
-            class="btn btn-secondary " (click)="onReturnToFishDetail()" type="submit">
+        </button>  
+        <button *ngIf="this.id"
+            class="btn btn-secondary" (click)="onReturnToFishDetail()" type="submit">
             Cancel updating<span class="caret"></span>
+        </button>  
+        <button *ngIf="!this.id" [disabled]="!fishForm.valid"
+            class="btn btn-primary" data-bs-dismiss="modal" (click)="onSaveNewFish()" type="submit">
+            Save this Fish <span class="caret"></span>
         </button> 
-        
-    <button   *ngIf="!this.id" [disabled]="!fishForm.valid"
-        class="btn btn-primary " data-bs-dismiss="modal" (click)="onSaveNewFish()" type="submit">
-        Save this Fish <span class="caret"></span>
-    </button> 
-    </div>
-
-
+    </div> 
 </div>
-

@@ -1,31 +1,18 @@
-<div class="fishtankLayoutWrapper" (click)="checkData()">
-        <slider-animation *ngIf =" this.allFishIconData[0]" style='position:absolute;z-index: 30;' (click)="switchAnimation()" >
-                    
-                    <!-- (change)="onChange($event);displayMessage($event)" -->
-                </slider-animation>
-    <div  class="fishtankLayoutContainer">
-              
-            
-            <!-- <div  class="fishtankTopBackground"></div> -->
-            <div  class="fishtankCover"></div>
-            <div  class="fishtankWaterLevel" [ngStyle]="{'top': coverTopValue}"><span style="z-index: 20" class="coverComment">water level</span></div>
-            <div  class="fishtankCoverBackground" [ngStyle]="{'height': bacgroundHeight}"></div>
-            <div style="height: 5vw">
-               <div  class="fishtankBackground"></div> 
-            </div>
-            
-            <div class="swimmingContainer" (click)="checkData()"  [ngStyle]="{'height': swimmingHeight}">
-                <!-- <div class="swimmingContainer" > -->
-                    <div *ngFor="let image of this.allFishIconData; index as i ">
-                        <img [ngStyle]="{
-                            'max-width': getLength(i), 'top': positions[i].top,'left': positions[i].left}"  class="image"       alt="{{image.name}}" [src]=image.pictureLink>
-                            <!-- <img [ngStyle]="{
-                                'max-width': getLength(i), 'left': getTop(i),}"         alt="{{image.name}}" [src]=image.pictureLink> -->
-                    </div>
-                
-
-            </div>
-    </div>
-    <!-- <div   style='position:absolute;top: -30%' (click)="switchAnimation()">ANIMATE</div> -->
- 
+<div class="fishtankLayoutWrapper">
+    <slider-animation *ngIf ="this.allFishIconData[0]" style='position:absolute;z-index: 30;' (click)="switchAnimation()" > 
+    </slider-animation>
+    <div class="fishtankLayoutContainer"> 
+        <div class="fishtankCover"></div>
+        <div class="fishtankWaterLevel" [ngStyle]="{'top': coverTopValue}"><span style="z-index: 20" class="coverComment">water level</span></div>
+        <div class="fishtankCoverBackground" [ngStyle]="{'height': bacgroundHeight}"></div>
+        <div style="height: 5vw">
+            <div class="fishtankBackground"></div> 
+        </div> 
+        <div class="swimmingContainer" [ngStyle]="{'height': swimmingHeight}"> 
+            <div *ngFor="let image of this.allFishIconData; index as i">
+                <img [ngStyle]="{
+                    'max-width': getLength(i), 'top': positions[i].top,'left': positions[i].left}"  class="image" alt="{{image.name}}" [src]=image.pictureLink> 
+            </div> 
+        </div>
+    </div> 
 </div> 

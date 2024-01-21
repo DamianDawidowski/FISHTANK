@@ -1,31 +1,30 @@
 
 <div class="container_fishes">
+  <!-- usefull for troubleshooting... -->
   <!-- <p (click)="showSortedFishes()">fishes works!</p> -->
-    <div class=" " data-bs-toggle="modal" data-bs-target="#exampleModal">
-      <a  routerLinkActive="active" routerLink="new" > 
-          <button class="btn btn-primary bntAdjust" (click)="toStart()">Add Custom Fish</button> 
-      </a>
-      
+  <div class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <a routerLinkActive="active" routerLink="new" > 
+      <button class="btn btn-primary bntAdjust" (click)="toStart()">Add Custom Fish</button> 
+    </a> 
+  </div>
+  <div >
+    <div class="containerList" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+      <app-fishes-list [fishes]="sortedFishes"></app-fishes-list>
     </div>
-    <div >
-        <div class="containerList" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
-            <app-fishes-list [fishes]="sortedFishes"></app-fishes-list>
+  </div> 
+  <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Fish detail</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-    </div>
-  
-    <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog"  >
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Fish detail</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" >
-            <router-outlet></router-outlet>
-          </div> 
-        </div>
+        <div class="modal-body" >
+          <router-outlet></router-outlet>
+        </div> 
       </div>
-    </div> 
+    </div>
+  </div> 
 </div>
 
  

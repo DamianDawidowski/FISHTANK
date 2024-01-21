@@ -1,37 +1,25 @@
-<div class="tankContainer">
-
-<!-- <div [hidden]="!isTankSetup && showTankForm"> -->
+<div class="tankContainer"> 
     <div  *ngIf="!isTankSetup">
-    <p>PLEASE SETUP YOUR TANK</p>
-    </div>
- 
+        <p>PLEASE SETUP YOUR TANK</p>
+    </div> 
     <div *ngIf="isTankSetup" class="tankView"> 
-        <p class="tankViewName"(click)="showdata()">{{tank.tankName}}</p> 
+        <p class="tankViewName">{{tank.tankName}}</p> 
         <div class="tankViewLength">
-        <img width="60px" src='../../../assets/Long_arrow.png'  class="tankViewLengthArrow"/>
-        <p>Length <span>{{tank.length}}</span> cm</p> 
-    </div>
-
-    <div class="tankViewDepth">
-        <img width="50px" src='../../../assets/Long_arrow.png'  class="tankViewDepthArrow"/>
-        <p>Depth <br><span>{{tank.depth}}</span> cm</p> 
-    </div>
-
-    <div class="tankViewHeight">
-        <img width="60px" src='../../../assets/Long_arrow.png'  class="tankViewHeightArrow"/>
-        <p class="tankViewHeightP">Height <span>{{tank.height}}</span> cm</p> 
-    </div>
- 
-    </div>
- 
-
+            <img width="60px" src='../../../assets/Long_arrow.png'  class="tankViewLengthArrow"/>
+            <p>Length <span>{{tank.length}}</span> cm</p> 
+        </div> 
+        <div class="tankViewDepth">
+            <img width="50px" src='../../../assets/Long_arrow.png'  class="tankViewDepthArrow"/>
+            <p>Depth <br><span>{{tank.depth}}</span> cm</p> 
+        </div> 
+        <div class="tankViewHeight">
+            <img width="60px" src='../../../assets/Long_arrow.png'  class="tankViewHeightArrow"/>
+            <p class="tankViewHeightP">Height <span>{{tank.height}}</span> cm</p> 
+        </div> 
+    </div> 
     <div *ngIf="showTankForm">
         <span *ngIf="this.tank"> {{tank.tankName}}'s parameters  </span>
-        <form [formGroup]="tankForm" (ngSubmit)="onSubmit()" >
-            <div class="row">
-                    
-            </div>
-
+        <form [formGroup]="tankForm" (ngSubmit)="onSubmit()"> 
             <div class="row" style="padding-top: 20px;">
                 <div class="col-xs-12">
                     <div class="form-group">
@@ -42,17 +30,13 @@
                         formControlName="tankName">
                     </div>
                 </div>
-            </div>
-
+            </div> 
             <div *ngIf=" tankName.invalid && ( tankName.dirty ||  tankName.touched)" class="alert">
                 <div *ngIf="tankName.errors?.['required']">Name is required.</div>
                 <div *ngIf="tankName.errors?.['minlength']">
                     Name must be at least 4 characters long.
-                </div>
-                
-            </div>
-        
-
+                </div> 
+            </div> 
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
@@ -62,8 +46,7 @@
                         formControlName="length">
                     </div>
                 </div>
-            </div>
-        
+            </div> 
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
@@ -73,8 +56,7 @@
                         formControlName="height">
                     </div>
                 </div>
-            </div>
-
+            </div> 
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
@@ -85,57 +67,40 @@
                         #imagePath>
                     </div>
                 </div>
-            </div>
-                
-            <div  [hidden]="editWaterParams">
+            </div> 
+            <div [hidden]="editWaterParams">
                 <p>The optimal water parameters can best be estimated once you add some fish</p>
-                <button  type="button" (click)="onShowWaterParamsForm()">I want to edit the parameters anyway</button>
+                <button type="button" (click)="onShowWaterParamsForm()">I want to edit the parameters anyway</button>
             </div>
             <button  
-            *ngIf="isTankSetup"
-            [disabled]="!tankForm.valid"
-            class="btn btn-primary " (click)="onFindWaterParams()" type="button"
-            >
+                *ngIf="isTankSetup"
+                [disabled]="!tankForm.valid"
+                class="btn btn-primary " (click)="onFindWaterParams()" type="button">
             <span class="caret">Suggest optimal water parameters for all your fish </span>
-            </button> 
-
-            <div [hidden]="!editWaterParams" class="slidersContainer">
-
+            </button>  
+            <div [hidden]="!editWaterParams" class="slidersContainer"> 
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group sliderContainer">
-                            <label class="label" for="name">pH</label>
-
+                            <label class="label" for="name">pH</label> 
                             <mat-slider class="container_lengthSlider" min="1" max="14" step="0.5">
-                                <input formControlName="ph"   matSliderThumb   #sliderPH 
-                            >
+                                <input formControlName="ph"   matSliderThumb   #sliderPH>
                             </mat-slider>
-                            <label class="example-value-label">{{sliderPH.value}}</label> 
-
-
-
-                            <!-- <input type="number"
-                            id="name" class="form-control"
-                            formControlName="ph"> -->
+                            <label class="example-value-label">{{sliderPH.value}}</label>  
                         </div>
                     </div>
-                </div>
-
-                <div class="row ">
-                            <div class="col-xs-12">
-                                <div class="form-group sliderContainer">
-                                    <label  class="label" for="name">Hardness</label>
-
-                                    <mat-slider class="container_lengthSlider" min="0" max="30" step="0.5">
-                                        <input formControlName="dh"   matSliderThumb   #sliderDH 
-                                    >
-                                    </mat-slider>
-                                    <label class="example-value-label">{{sliderDH.value}}</label> 
-
-                                </div>
-                            </div>
-                </div>
-
+                </div> 
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group sliderContainer">
+                            <label  class="label" for="name">Hardness</label> 
+                            <mat-slider class="container_lengthSlider" min="0" max="30" step="0.5">
+                                <input formControlName="dh"   matSliderThumb   #sliderDH>
+                            </mat-slider>
+                            <label class="example-value-label">{{sliderDH.value}}</label>  
+                        </div>
+                    </div>
+                </div> 
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group sliderContainer">
@@ -145,33 +110,26 @@
                             </mat-slider>
                             <label class="example-value-label">{{sliderTemp.value}}<span  style=' vertical-align: super;font-size: 70%'>o</span>C</label>  
                         </div>
-                    </div>
-
-                </div>
-  
-            </div>
-
+                    </div> 
+                </div> 
+            </div> 
             <div>
                 <button  
-                [disabled]="!tankForm.valid"
-                class="btn btn-primary " (click)="onCreateTank()" type="submit"
-                *ngIf="!isTankSetup" >
-                <span class="caret">Create my tank</span>
+                    [disabled]="!tankForm.valid"
+                    class="btn btn-primary " (click)="onCreateTank()" type="submit"
+                    *ngIf="!isTankSetup">
+                    <span class="caret">Create my tank</span>
                 </button> 
                 <button  
-                *ngIf="isTankSetup"
-                [disabled]="!tankForm.valid"
-                class="btn btn-primary " (click)="onUpdateTank()" type="button"
-                >
-                <span class="caret">Update my tank</span>
-                </button> 
-                
-            </div>
- 
+                    *ngIf="isTankSetup"
+                    [disabled]="!tankForm.valid"
+                    class="btn btn-primary " (click)="onUpdateTank()" type="button">
+                    <span class="caret">Update my tank</span>
+                </button>  
+            </div> 
         </form> 
-    </div>
-
-    <p *ngIf="!showTankForm && finalFishesInTank.length>0" class="message" [innerHTML]="appealToEditMessage">  </p>
+    </div> 
+    <p *ngIf="!showTankForm && finalFishesInTank.length>0" class="message" [innerHTML]="appealToEditMessage"></p>
     <button class="btn btnControl" [ngClass]="this.tankScore<=0 ? 'btn-success' : (this.tankScore<=10 ? 'btn-warning' : 'btn-danger')" *ngIf="!showTankForm"  (click)="onShowTankForm()" [innerHTML]='isTankSetup ? "EDIT MY TANK" : "NEW TANK"'> XXX</button>
     <div class="icon translateArrow" *ngIf="showWelcome">
         <div class="arrow "></div>

@@ -10,24 +10,21 @@
     cursor: pointer;
 }
 .dHContainer{
-  height:40px;
-  /* width: 130px; */
+  height:40px; 
   display: flex;
   justify-content: space-between;
   border-radius:8px;
   cursor: pointer;
 }
 
-.icon {
-    /* background: url('../../../assets/acidIcon.svg') no-repeat; */
+.icon { 
     min-width: 30px;
     width:30px;
     fill:black;
     color: black;
 }
 
-.value{
-    /* width: 40px; */
+.value{ 
     padding-left: 5px;
     line-height: 1.5;
     font-size: 24px;
@@ -48,49 +45,38 @@
   color:black;
 }
 
-.blink1 {
-    /* animation: blinker 1s step-start infinite; */
-    animation: blinker1 ease-in-out  2s infinite;
+.blink1 { 
+  animation: blinker1 ease-in-out  2s infinite;
+}
+.blink2 { 
+  animation: blinker2 ease-in-out  1s infinite;
+}
+.blink3 { 
+  animation: blinker3 ease-in-out  0.4s infinite;
+}
+
+@keyframes blinker1 {
+  100% { 
+    color:black;
   }
-  .blink2 {
-    /* animation: blinker 1s step-start infinite; */
-    animation: blinker2 ease-in-out  1s infinite;
+  50% { 
+    color: yellow; 
   }
-  .blink3 {
-    /* animation: blinker 1s step-start infinite; */
-    animation: blinker3 ease-in-out  0.4s infinite;
+}
+@keyframes blinker2 {
+  100% { 
+    color:black; 
   }
-  
-  @keyframes blinker1 {
-    100% { 
-      color:black;
-    }
-    50% { 
-      color: yellow; 
-    }
+  50% { 
+    color: orange;
   }
-  @keyframes blinker2 {
-    100% {
-      /* opacity: 0; */
-      /* background-color: red; */
-      /* border: 4px red; */
-      color:black;
-      /* font-size: 40px; */
-    }
-    50% { 
-      color: orange;
-    }
+}
+@keyframes blinker3 {
+  100% { 
+    color:black; 
   }
-  @keyframes blinker3 {
-    100% {
-      /* opacity: 0; */
-      /* background-color: red; */
-      /* border: 4px red; */
-      color:black;
-      /* font-size: 40px; */
-    }
-    50% { 
-      color: red;
-    }
+  50% { 
+    color: red;
   }
+}
  
