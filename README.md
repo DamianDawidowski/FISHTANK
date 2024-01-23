@@ -1,4 +1,4 @@
-# FISHTANK <img alt="logo" src="./frontend/src/assets/logo.png" width="40"/>
+# FISHTANK <img alt="logo" src="./frontend/src/assets/logow.png" width="40"/>
 
 ## Instructions
 1) Initiate the database:
