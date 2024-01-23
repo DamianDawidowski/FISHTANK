@@ -23,7 +23,7 @@ Multiple users can setup their own tanks. However the fish database is shared (m
 
 ![register](./imgReadme/register.png)
 ### Fish selection
-Initially I envisioned simply hooking up the app to external REST API service to obtain a suitably large set of aquarium fish data. However it appears no suitable service exists, therefore I included a small fish database within the app, with the obvious and necessary option to add more fishes to this database by the user. The user will need to supply accurate details for each new fish, to make sure FISHTNANK gives back reliable feedback.
+Initially I envisioned simply hooking up the app to external REST API service to obtain a suitably large set of aquarium fish data. However it appears no suitable service exists, therefore I included a small fish database within the app, with the obvious and necessary option to add more fishes to this database by the user. The user will need to supply accurate details for each new fish, to allow the FISHTNANK to give back reliable feedback.
 
 ![register](./imgReadme/fishToChoose.png)
 ### Welcome instructions
@@ -40,6 +40,6 @@ The program automatically compares setup fishtank parameters, as well as other f
 ![errorIcons](./imgReadme/errorIcons.png)
 
 ### Tank visualisation and animation
-Tank layout in the middle of My Tank page allows to visualise fish inside the tank that was setup by the user. In particular, it should quickly present to the user, if the tank is excessively small against a particularly large fish (try adding the Redtail Catfish to an average size tank) or particularly overcrowded. There's also an option (turned off by default) to animate each fish in this tank. The animation makes the fish icons move around the swimmable area of the tank, and its purely cosmetic. It may lead to cosiderable slowdowns if large number of fishes are added.
+Tank layout in the middle of My Tank page allows to visualise fish inside the tank that was setup by the user. In particular, it should quickly present to the user, if the tank is excessively small against a particularly large fish (try adding the Redtail Catfish to an average size tank) or particularly overcrowded. There's also an option (turned off by default) to animate each fish in this tank. The animation makes the fish icons move around the swimmable area of the tank, and it's purely cosmetic. It may lead to cosiderable slowdowns if large number of fishes are added.
 
 ![visualisation](./imgReadme/animate.png)
