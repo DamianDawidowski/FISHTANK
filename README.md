@@ -26,4 +26,4 @@ Instructions aim to lead the user to the particular order of actions to fully us
 ![welcomeScreen](./imgReadme/welcome.png)
 ### Water parameters optimisation function 
 The "Find optimal water parameters" button loads the optimal water parameters(hardness, temperature, pH) based on requirenments of all fishes picked by the user. Note that the found values are averages of all individual fish preferences, and as such will not guarantee that the found value will satisfy every fish, especially those with narrow parameter preference. Manual fine-tuning by the user may be required. Finally, some fishes have too different water parameter preferences, to which a good middle ground value cannot be found. Those fishes should not be kept together.
-![optimiseParams](./imgReadme/goodParamsFind.pngg)
+![optimiseParams](./imgReadme/goodParamsFind.png)
