@@ -1,6 +1,6 @@
 # FISHTANK <img alt="logo" src="./frontend/src/assets/logo.png" width="40"/>
 
-# Instructions
+## Instructions
 1) Initiate the database:
 ```
 docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=backend -e POSTGRES_PASSWORD=backend -e POSTGRES_DB=backenddb -p 5432:5432 postgres:13
@@ -16,3 +16,11 @@ cd frontend
 npm install
 ng serve
 ```
+
+# Features
+### Login and Register Pages 
+![register](./imgReadme/register.png)
+### Welcome instruction 
+![welcomeScreen](./imgReadme/welcome.png)
+### Water parameters optimisation function 
+![optimiseParams](./imgReadme/optimizeParams.png)
