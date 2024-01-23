@@ -38,3 +38,8 @@ The "Find optimal water parameters" button loads the optimal water parameters(ha
 The program automatically compares setup fishtank parameters, as well as other fish tankmates, against the preferences of each individual fish, and gives blinking icon alerts if problems are detected. The potential alerts are concerning: water parameter (temperature, water hardness or pH) outside of tolerable range, too small a tank volume, less then 5 fish of one type (if fish prefers to live in a group = schooling), presence of a predator thats at least 3x bigger, presence of an active tankmate that may excessively dominate the shy or delicate fish (common problem with Discus), and finally too small a dimension, either length, depth or height compared to the adult fish length (preferred values are 4x, 1.5x, 1.5x). Clicking the alerts will display dialog windows clarifying what the problem is, ie "the tank pH is 1 unit below the minimum tolerated by the fish".
 
 ![errorIcons](./imgReadme/errorIcons.png)
+
+### Tank visualisation and animation
+Tank layout in the middle of My Tank page allows to visualise fish inside the tank that was setup by the user. In particular, it should quickly present to the user, if the tank is excessively small against a particularly large fish (try adding the Redtail Catfish to an average size tank) or particularly overcrowded. There's also an option (turned off by default) to animate each fish in this tank. The animation makes the fish icons move around the swimmable area of the tank, and its purely cosmetic. It may lead to cosiderable slowdowns if large number of fishes are added.
+
+![visualisation](./imgReadme/animate.png)
