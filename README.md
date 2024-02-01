@@ -40,6 +40,6 @@ The program automatically compares setup fishtank parameters, as well as other f
 ![errorIcons](./imgReadme/errorIcons.png)
 
 ### Tank visualisation and animation
-Tank layout in the middle of My Tank page allows to visualise fish inside the tank that was setup by the user. In particular, it should quickly present to the user, if the tank is excessively small against a particularly large fish (try adding the Redtail Catfish to an average size tank) or particularly overcrowded. There's also an option (turned off by default) to animate each fish in this tank. The animation makes the fish icons move around the swimmable area of the tank, and it's purely cosmetic. It may lead to cosiderable slowdowns if large number of fishes are added.
+Tank layout in the middle of My Tank page allows to visualise fish inside the tank that was setup by the user. In particular, it should quickly present to the user if the tank is too small against a particularly large fish (try adding the Redtail Catfish to an average size tank) or particularly overcrowded. There's also an option (turned off by default) to animate each fish in this tank. The animation makes the fish icons move around the swimmable area of the tank, and it's purely cosmetic. It may lead to considerable slowdowns if large number of fishes are added.
 
 ![visualisation](./imgReadme/animate.png)
