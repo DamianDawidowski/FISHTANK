@@ -1,0 +1,41 @@
+version: "3"
+
+volumes:
+  dbdata:
+
+services:
+  postgresdb:
+    image: postgres
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - POSTGRES_USER=postgres2
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=$POSTGRESDB_DATABASE                
+    ports:
+      - "5432:5432" 
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+  backend:
+    build:
+      context: ./backend    
+    env_file: ./.env     
+    ports:
+      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
+    environment:
+     SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:postgresql://postgresdb:$POSTGRESDB_DOCKER_PORT/$POSTGRESDB_DATABASE",
+        "spring.datasource.username" : "postgres2",
+        "spring.datasource.password" : "123",
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
+        "spring.jpa.hibernate.ddl-auto" : "create"
+      }'  
+    depends_on:
+      - postgresdb
+  frontend:
+    build: 
+      context: ./frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
