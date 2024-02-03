@@ -10,7 +10,7 @@ Alternatevily, you can initiate the three services separately:
 
 1) Initiate the database:
 ```
-docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=backend -e POSTGRES_PASSWORD=backend -e POSTGRES_DB=fishtankdb -p 5432:5432 postgres:13
+docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=backend -e POSTGRES_PASSWORD=backend -e POSTGRES_DB=fishtankdb -p 5434:5432 postgres:13
 ```
 2) Start the backend server 
 ```
