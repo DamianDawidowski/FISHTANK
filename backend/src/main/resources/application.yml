@@ -3,9 +3,9 @@ security.jwt.token.secret-key: my-secret-key
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: test
+    url: jdbc:postgresql://localhost:5432/fishtankdb
+    username: backend
+    password: backend
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
