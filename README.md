@@ -6,7 +6,7 @@ You can start the entire app by simply running the Docker Compose file:
 ```
 docker-compose up
 ```
-Alternatevily, you can intitiate the three services separately:
+Alternatevily, you can initiate the three services separately:
 
 1) Initiate the database:
 ```
