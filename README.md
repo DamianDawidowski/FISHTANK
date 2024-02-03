@@ -30,11 +30,11 @@ Multiple users can setup their own tanks. However the fish database is shared (m
 
 ![register](./imgReadme/register.png)
 ### Fish selection
-Initially I envisioned simply hooking up the app to external REST API service to obtain a suitably large set of aquarium fish data. However it appears no suitable service exists, therefore I included a small fish database within the app, with the obvious and necessary option to add more fishes to this database by the user. The user will need to supply accurate details for each new fish, to allow the FISHTNANK to give back reliable feedback.
+Initially I envisioned simply hooking up the app to external REST API service to obtain a suitably large set of aquarium fish data. However it appears no suitable service exists, therefore I included a small fish database within the app, with the obvious and necessary option to add more fishes to this database by the user. The user will need to supply accurate details for each new fish, to allow the FISHTANK to give back reliable feedback.
 
 ![register](./imgReadme/fishToChoose.png)
 ### Welcome instructions
-Instructions aim to lead the user to the particular order of actions to fully use the app functionality. The order is to setup the tank first, add the desired fish, and then check the My tank tab for alerts on both left and write panels.  The alerts are blinking icons, with the blink rate and color changing with severity of parameter disparity, to catch and focus the attention of the user. 
+Instructions aim to lead the user to the particular order of actions to fully use the app functionality. The order is to setup the tank first, add the desired fish, and then check the My tank tab for alerts on both left and right panels.  The alerts are blinking icons, with the blink rate and color changing with severity of parameter disparity, to catch and focus the attention of the user. 
 
 ![welcomeScreen](./imgReadme/welcome.png)
 ### Water parameters optimization function 
