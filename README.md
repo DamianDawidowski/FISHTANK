@@ -2,7 +2,7 @@
 
 ## Instructions
 
-You can start the entire up by simply running the Docker Compose file:
+You can start the entire app by simply running the Docker Compose file:
 ```
 docker-compose up
 ```
