@@ -1,19 +1,22 @@
 version: "3"
 
-volumes:
-  dbdata_fishtank:
+volumes: 
+  dbdata_fishtank: 
+    name: volume_name 
 
 services:
-  postgresdb:
+  fishtankdb:
     image: postgres
     restart: unless-stopped
-    env_file: ./.env
+    container_name: fishtankdb
     environment:
-      - POSTGRES_USER=$POSTGRESDB_USER
-      - POSTGRES_PASSWORD=$POSTGRESDB_ROOT_PASSWORD
-      - POSTGRES_DB=$POSTGRESDB_DATABASE
+    - POSTGRES_DB=fishtankdb
+    - POSTGRES_HOST_AUTH_METHOD = trust
+    - POSTGRES_PASSWORD=backend
+    - POSTGRES_USER=backend 
+    # env_file: ./.env  
     ports:
-      - $POSTGRESDB_LOCAL_PORT:$POSTGRESDB_DOCKER_PORT
+      - 5434:5432
     volumes:
       -  dbdata_fishtank:/var/lib/postgresql/data
   backend:
@@ -23,15 +26,15 @@ services:
     ports:
       - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
     environment:
-     SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:postgresql://postgresdb:$POSTGRESDB_DOCKER_PORT/$POSTGRESDB_DATABASE",
-        "spring.datasource.username" : "$POSTGRESDB_USER",
-        "spring.datasource.password" : "$POSTGRESDB_ROOT_PASSWORD",
+     SPRING_APPLICATION_JSON: '{ 
+        "spring.datasource.url"  : "jdbc:postgresql://host.docker.internal:5434/postgres",
+        "spring.datasource.username" : "backend",
+        "spring.datasource.password" : "backend",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
         "spring.jpa.hibernate.ddl-auto" : "create"
       }'  
-    depends_on:
-      - postgresdb
+    # depends_on:
+    #   - fishtankdb
   frontend:
     build: 
       context: ./frontend
