@@ -2,6 +2,11 @@
 
 ## Instructions
 
+### Recommended Program Versions
+LTS version of Node.js [Available here](https://nodejs.org/en/)
+Oracle Java 17 JDK [Available here](https://www.oracle.com/java/technologies/downloads/#java17)
+
+
 You can start the entire app by simply running the Docker Compose file:
 ```
 docker-compose up
